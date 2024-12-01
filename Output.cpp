@@ -279,8 +279,15 @@ void Output::CreateCommandsBar(Command savedCommands[], int savedCommandsCount, 
 	string CommandItemImages[COMMANDS_COUNT];
 	CommandItemImages[NO_COMMAND] = "images\\CommandSlot-grey.jpg";
 	CommandItemImages[MOVE_FORWARD_ONE_STEP] = "images\\MoveForwardCard.jpg";
+	CommandItemImages[MOVE_BACKWARD_ONE_STEP] = "images\\MoveBackwardCard.jpg";
+	CommandItemImages[MOVE_FORWARD_TWO_STEPS] = "images\\MoveForward2Card.jpg";
+	CommandItemImages[MOVE_BACKWARD_TWO_STEPS] = "images\\MoveBackward2Card.jpg";
+	CommandItemImages[MOVE_FORWARD_THREE_STEPS] = "images\\MoveForward3Card.jpg";
+	CommandItemImages[MOVE_BACKWARD_THREE_STEPS] = "images\\MoveBackward3Card.jpg";
+	CommandItemImages[ROTATE_CLOCKWISE] = "images\\RotateCW.jpg";
+	CommandItemImages[ROTATE_COUNTERCLOCKWISE] = "images\\RotateCCW.jpg";
 	// TODO: Prepare images for more items with .jpg extensions and add them to the list
-
+	// DONE NADY
 	DrawSavedCommands(savedCommands, savedCommandsCount, CommandItemImages);
 	DrawAvailableCommands(availableCommands, availableCommandsCount, CommandItemImages);
 }
