@@ -235,8 +235,24 @@ void Output::CreateDesignModeToolBar() const
 
 	/// TODO: Change the path of the images as needed
 	MenuItemImages[ITM_SET_FLAG_CELL] = "images\\Menu_Dice.jpg";
+	MenuItemImages[ITM_Add_Flag] = "images\\Design\\flag.jpg";
+	MenuItemImages[ITM_Add_Antenna] = "images\\Design\\antenna.jpg";
+	MenuItemImages[ITM_Add_Belt] = "images\\Design\\belt.jpg";
+	MenuItemImages[ITM_Add_Water_Pit] = "images\\Design\\water.jpg";
+	MenuItemImages[ITM_Add_Danger_Zone] = "images\\Design\\danger.jpg";
+	MenuItemImages[ITM_Add_Workshop] = "images\\Workshop.jpg";
+	MenuItemImages[ITM_Add_Rotating_Gear] = "images\\Design\\gear.jpg";
+	MenuItemImages[ITM_Copy_Game_Object] = "images\\Design\\copy.jpg";
+	MenuItemImages[ITM_Cut_Game_Object] = "images\\Design\\cut.jpg";
+	MenuItemImages[ITM_Paste_Game_Object] = "images\\Design\\paste.jpg";
+	MenuItemImages[ITM_Delete_Game_Object] = "images\\Design\\delete.jpg";
+	MenuItemImages[ITM_Save_Grid] = "images\\Design\\save.jpg";
+	MenuItemImages[ITM_Load_OR_Open_Grid] = "images\\Design\\open.jpg";
 
 	/// TODO: Prepare images for each menu item and add it to the list
+
+	// DONE NADY BARDO
+	// lama n4oof a5rtha eyh
 
 	// Draw menu item one image at a time
 	for (int i = 0; i < DESIGN_ITM_COUNT; i++)
