@@ -84,6 +84,18 @@ int main()
 	///  	but the first saved command will be MOVE_FORWARD_TWO_STEPS
 	///		and the first available command will be NO_COMMAND as previous test
 
+	{
+		Command savedCommands[5];
+		savedCommands[0] = MOVE_FORWARD_TWO_STEPS;
+		for (int i = 1; i < 5; i++)
+			savedCommands[i] = NO_COMMAND;
+		Command availableCommands[6];
+		availableCommands[0] = NO_COMMAND;
+		for (int i = 1; i < 6; i++)
+			availableCommands[i] = MOVE_FORWARD_ONE_STEP;
+		pOut->CreateCommandsBar(savedCommands, 5, availableCommands, 6);
+	}
+
 	pOut->PrintMessage("1.1.4- Finished Testing the Command bar in the Game mode, Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
 
