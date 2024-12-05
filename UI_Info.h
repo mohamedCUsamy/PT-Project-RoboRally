@@ -62,7 +62,6 @@ enum PLAY_MODE_ITEMS // The items of the Play Mode (you should add more items)
 	ITM_Reboot_and_Repair,
 	ITM_Use_Consumable,
 	ITM_New_Game,
-	ITM_Switch_to_Design_Mode,
 
 	//
 	PLAY_ITM_COUNT // no. of items ==> This should be the last line in this enum

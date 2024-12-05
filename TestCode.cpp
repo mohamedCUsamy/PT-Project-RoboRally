@@ -1,5 +1,7 @@
 #include "Input.h"
 #include "Output.h"
+#include <iostream>
+using namespace std;
 
 // This is a test code to test the Input and Output classes
 
@@ -314,13 +316,49 @@ int main()
 
 	CellPosition cellpos_1(0, 0);
 
-	/// TODO:
-	// 1- Ask user to enter an integer and read it using GetInteger()
-	// 2- Call SetVCell() of cellpos_1 with that integer
-	// 3- Print GetVCell() of cellpos_1 as follows: "Now the vCell = 5" (assuming the entered integer is 5)
-	// 4- Call GetPointClicked()
-	// 5- Repeat the above steps FIVE TIMES
-	// 6- Repeat all the above steps to test SetHCell() function instead with the needed modifications
+	for (int i = 0; i < 5; i++)
+	{
+		cout << "Enter an integer vCell : " << endl;
+		// int integer = pIn->GetInteger(pOut);
+		int integerV = 0;
+		cin >> integerV;
+		cout << "Enter an integer hCell: " << endl;
+		int integerH = 0;
+		cin >> integerH;
+		if (cellpos_1.SetHCell(integerH) && cellpos_1.SetVCell(integerV))
+		{
+			cout << "H and V cells setted success" << endl;
+			cout << "Count = " << i << endl;
+			cout << "Now the vCell = " << cellpos_1.VCell() << endl;
+			cout << "Now the hCell = " << cellpos_1.HCell() << endl;
+		}
+
+		else
+			cout << "Invalid numbers" << endl;
+
+		// pIn->GetPointClicked(x, y);
+	}
+
+	/*	for (int i = 0; i < 5; i++)
+		{
+			cout << "Enter an integer: " << endl;
+			//int integer = pIn->GetInteger(pOut);
+			int integer = 0;
+			cin >> integer;
+			cellpos_1.SetHCell(integer);
+			cout << "Now the hCell = " << cellpos_1.HCell() << endl;
+			pIn->GetPointClicked(x, y);
+		}
+		*/
+
+	///  TODO:
+	// 1-  Ask user to enter an integer and read it using GetInteger()
+	// 2-  Call SetVCell() of cellpos_1 with that integer
+	// 3-  Print GetVCell() of cellpos_1 as follows: "Now the vCell = 5" (assuming the entered integer is 5)
+	// 4-  Call GetPointClicked()
+	// 5-  Repeat the above steps FIVE TIMES
+	// 6-  Repeat all the above steps to test SetHCell() function instead with the needed modifications
+	// DONE SAMY
 
 	pOut->PrintMessage("FINISHED - (Setters with Validation) Test, Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
@@ -328,12 +366,26 @@ int main()
 	pOut->PrintMessage("4.2- (GetCellNumFromPosition) Test, Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
 
+	for (int i = 0; i < 5; i++)
+	{
+		int pos1 = 0;
+		int pos2 = 0;
+		cout << "Enter an integer: " << endl;
+		cin >> pos1;
+		cout << "Enter an integer: " << endl;
+		cin >> pos2;
+		CellPosition p1(pos1, pos2);
+		string toprint = "The CellNumber is" + to_string(p1.GetCellNum());
+		pOut->PrintMessage(toprint);
+	}
+
 	/// TODO:
 	// 1- Read from user two integers representing vCell and hCell
 	// 2- Creates a CellPosition object of them
 	// 3- Use the function GetCellNum() to get the corresponding Cell Number (it used function : GetCellNumFromPosition() inside it)
 	// 4- Print the Cell Number on the status bar
 	// 5- Repeat the above steps Five TIMES
+	// DONE SAMY
 
 	pOut->PrintMessage("FINISHED - (GetCellNumFromPosition) Test, Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
@@ -341,13 +393,25 @@ int main()
 	pOut->PrintMessage("4.3- (GetCellPositionFromNum) Test, Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
 
-	/// TODO:
+	for (int i = 0; i < 5; i++)
+	{
+		cout << "Enter an integer number: " << endl;
+		int integer1 = 0;
+		cin >> integer1;
+		CellPosition c1(integer1);
+		string toprint = "The vCell is" + to_string(c1.VCell()) + " and the hCell is " + to_string(c1.HCell());
+		cout << toprint;
+		pOut->PrintMessage(toprint);
+	}
+
+	/// TODO: ||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 	// 1- Read from user one integer representing cellNum
 	// 2- Creates a CellPosition object of that integer using that constructor:
 	//		CellPosition (int cellNum);
 	//			--> it uses the function : GetCellPositionFromNum () inside it
 	// 4- Print the Cell vCell and hCell on the status bar
 	// 5- Repeat the above steps Five TIMES
+	// DONE SAMY
 
 	pOut->PrintMessage("FINISHED - (GetCellPositionFromNum) Test, Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
@@ -361,6 +425,23 @@ int main()
 	// 3- Use the function AddCellNum() to add the addedNum to the cellNum
 	// 4- Print the vCell and hCell of the new Cell Position on the status bar
 	// 5- Repeat the above steps Four TIMES with each time a different direction
+	// DONE SAMY
+
+	for (int i = 0; i < 4; i++)
+	{
+		cout << "Enter cell number: " << endl;
+		int CellNum = 0;
+		cout << "---------------------------------" << endl;
+		cin >> CellNum;
+		cout << "Enter cell number: " << endl;
+		int addNum = 0;
+		cin >> addNum;
+
+		CellPosition c1(CellNum);
+		c1.AddCellNum(addNum, RIGHT);
+		string toprint = "The vCell is" + to_string(c1.VCell()) + " and the hCell is " + to_string(c1.HCell());
+		pOut->PrintMessage(toprint);
+	}
 
 	pOut->PrintMessage("FINISHED - (AddCellNum) Test, Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click

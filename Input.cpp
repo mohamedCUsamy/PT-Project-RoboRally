@@ -115,8 +115,6 @@ ActionType Input::GetUserAction() const
 				return Save_Grid;
 			case ITM_Load_OR_Open_Grid:
 				return Load_OR_Open_Grid;
-			case ITM_Switch_to_Play_Mode:
-				return Switch_to_Play_Mode;
 
 				//
 
@@ -165,8 +163,8 @@ ActionType Input::GetUserAction() const
 				return Use_Consumable;
 			case ITM_New_Game:
 				return New_Game;
-			case ITM_Switch_to_Design_Mode:
-				return Switch_to_Design_Mode;
+			case ITM_SWITCH_TO_DESIGN_MODE:
+				return TO_DESIGN_MODE;
 			case ITM_EXIT:
 				return Exit;
 

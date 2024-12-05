@@ -1,5 +1,7 @@
 #include "CellPosition.h"
 #include "UI_Info.h"
+#include <iostream>
+using namespace std;
 
 CellPosition::CellPosition()
 {
@@ -17,7 +19,7 @@ CellPosition::CellPosition(int v, int h)
 	SetVCell(v);
 	SetHCell(h);
 }
-
+//////////////////////////////////////////////////////////////////////////////////
 CellPosition::CellPosition(int cellNum)
 {
 	(*this) = GetCellPositionFromNum(cellNum); // the function call with build a cell position (vCell and hCell)
@@ -29,26 +31,30 @@ CellPosition::CellPosition(int cellNum)
 
 bool CellPosition::SetVCell(int v)
 {
-	if (v < 5 && v >= 0)
+	if (v < NumVerticalCells && v >= 0)
 	{
 		vCell = v;
 		return true;
 	}
 	else
+	{
 		return false;
+	}
 }
-// Done
+// Done //NumVeriticale cells
 
 bool CellPosition::SetHCell(int h)
 {
 	/// TODO: Implement this function as described in the .h file (don't forget the validation)
-	if (h < 11 && h >= 0)
+	if (h < NumHorizontalCells && h >= 0)
 	{
-		h = hCell;
+		hCell = h;
 		return true;
 	}
 	else
+	{
 		return false;
+	}
 }
 // done
 
@@ -65,10 +71,7 @@ int CellPosition::HCell() const
 bool CellPosition::IsValidCell() const
 {
 	/// TODO: Implement this function as described in the .h file
-	if (vCell == -1 || hCell == -1)
-		return false;
-	else
-		return true;
+	return ((vCell < NumVerticalCells && vCell >= 0) && (hCell < NumHorizontalCells && hCell >= 0));
 }
 // done
 
@@ -89,7 +92,8 @@ int CellPosition::GetCellNumFromPosition(const CellPosition &cellPosition)
 
 	int v = cellPosition.VCell();
 	int h = cellPosition.HCell();
-	int cellNumber = (45 - (v * 11) + h); // v =3 h =4
+	int cellNumber = (45 - (v * 11) + h);
+	// v =3 h =4
 	//  (45 - (3*11) + 4) = 16
 
 	return cellNumber;
@@ -115,8 +119,8 @@ CellPosition CellPosition::GetCellPositionFromNum(int cellNum) // return and pos
 	else if (cellNum >= 45 && cellNum <= 55)
 		v = 0;
 
-	h = (cellNum - 1 - 11 * v);
-	// 28    w el v=2      // -> h=(28-1 -11*2)=28-1-22=6
+	h = cellNum - 1 - 11 * v;
+	// 28    w el v=2      // -> h=cellNum-1 -11*v
 	position.SetHCell(h);
 	position.SetVCell(v);
 
