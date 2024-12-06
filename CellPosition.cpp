@@ -1,7 +1,5 @@
 #include "CellPosition.h"
 #include "UI_Info.h"
-#include <iostream>
-using namespace std;
 
 CellPosition::CellPosition()
 {
