@@ -233,7 +233,7 @@ void Output::CreateDesignModeToolBar() const
 	MenuItemImages[ITM_EXIT] = "images\\Menu_Exit.jpg";
 	MenuItemImages[ITM_SWITCH_TO_PLAY_MODE] = "images\\Menu_SwitchToGame.jpg";
 
-	/// TODO: Change the path of the images as needed
+	/// SEMIDONE: Change the path of the images as needed
 	MenuItemImages[ITM_SET_FLAG_CELL] = "images\\Menu_Dice.jpg";
 	MenuItemImages[ITM_Add_Flag] = "images\\Design\\flag.jpg";
 	MenuItemImages[ITM_Add_Antenna] = "images\\Design\\antenna.jpg";
@@ -249,7 +249,7 @@ void Output::CreateDesignModeToolBar() const
 	MenuItemImages[ITM_Save_Grid] = "images\\Design\\save.jpg";
 	MenuItemImages[ITM_Load_OR_Open_Grid] = "images\\Design\\open.jpg";
 
-	/// TODO: Prepare images for each menu item and add it to the list
+	/// DONE: Prepare images for each menu item and add it to the list
 
 	// DONE NADY BARDO
 	// lama n4oof a5rtha eyh

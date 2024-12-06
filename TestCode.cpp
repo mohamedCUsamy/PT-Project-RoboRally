@@ -45,7 +45,7 @@ int main()
 	pOut->PrintMessage("1.1.2- Testing the Command bar in the Game mode, Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
 
-	/// TODO: Draw the command bar with only 4 available commands and 4 empty slots for saved commands
+	/// DONE: Draw the command bar with only 4 available commands and 4 empty slots for saved commands
 	// DONE NADY
 	{
 		Command savedCommands[4];
@@ -61,7 +61,7 @@ int main()
 	pOut->PrintMessage("1.1.3- Testing the Command bar in the Game mode, Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
 
-	/// TODO: Draw the command bar with 5 saved commands and 7 available commands,
+	/// DONE: Draw the command bar with 5 saved commands and 7 available commands,
 	///  	but the first saved command will be MOVE_FORWARD_ONE_STEP
 	///		and the first available command will be NO_COMMAND
 	// DONE NADY
