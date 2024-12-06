@@ -573,7 +573,7 @@ void Output::DrawFlag(const CellPosition &cellPos) const
 		pWind->SetBrush(UI.FlagPoleColor);
 		pWind->DrawLine(flagPoleStartX, flagPoleStartY, flagPoleStartX, flagPoleEndY);
 		// 		 2. Draw the flag (the triangle)
-		DrawTriangle(flagPoleStartX + (UI.FlagWidth / 2), flagPoleEndY - (UI.FlagHeight / 2), UI.FlagHeight, UI.FlagWidth, RIGHT, UI.FlagColor, FILLED, 1);
+		DrawTriangle(flagPoleStartX + (UI.FlagWidth / 2), flagPoleStartY + UI.FlagHeight / 2, UI.FlagHeight, UI.FlagWidth, RIGHT, UI.FlagColor, FILLED, 1);
 	}
 }
 
