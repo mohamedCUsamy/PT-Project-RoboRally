@@ -170,7 +170,6 @@ void Output::DrawTriangle(int triangleCenterX, int triangleCenterY, int triangle
 	}
 	else if (direction == DOWN)
 	{
-		// Downward pointing triangle
 		x1 = triangleCenterX - triangleWidth / 2;
 		y1 = triangleCenterY - triangleHeight / 2;
 		x2 = triangleCenterX + triangleWidth / 2;
@@ -180,7 +179,6 @@ void Output::DrawTriangle(int triangleCenterX, int triangleCenterY, int triangle
 	}
 	else if (direction == LEFT)
 	{
-		// Leftward pointing triangle
 		x1 = triangleCenterX + triangleWidth / 2;
 		y1 = triangleCenterY - triangleHeight / 2;
 		x2 = triangleCenterX + triangleWidth / 2;
@@ -190,7 +188,6 @@ void Output::DrawTriangle(int triangleCenterX, int triangleCenterY, int triangle
 	}
 	else if (direction == RIGHT)
 	{
-		// Rightward pointing triangle
 		x1 = triangleCenterX - triangleWidth / 2;
 		y1 = triangleCenterY - triangleHeight / 2;
 		x2 = triangleCenterX - triangleWidth / 2;
