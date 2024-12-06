@@ -106,8 +106,8 @@ CellPosition CellPosition::GetCellPositionFromNum(int cellNum) // return and pos
 
 	CellPosition position;
 
-	int v = 0;
-	int h = 0;
+	int v = -1;
+	int h = -1;
 	if (cellNum <= 11 && cellNum >= 1)
 	{
 		v = 4;
