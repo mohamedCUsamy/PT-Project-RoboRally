@@ -558,19 +558,26 @@ void Output::DrawBelt(const CellPosition &fromCellPos, const CellPosition &toCel
 
 void Output::DrawFlag(const CellPosition &cellPos) const
 {
-	// TODO: Validate the cell position
+	// DONE: Validate the cell position
+	if (cellPos.IsValidCell())
+	{
+		// Get the X and Y coordinates of the start point of the cell (its upper left corner)
+		int cellStartX = GetCellStartX(cellPos);
+		int cellStartY = GetCellStartY(cellPos);
 
-	// Get the X and Y coordinates of the start point of the cell (its upper left corner)
-	int cellStartX = GetCellStartX(cellPos);
-	int cellStartY = GetCellStartY(cellPos);
+		// DONE: Draw the flag as a line with a triangle connected to it directed to right
 
-	// TODO: Draw the flag as a line with a triangle connected to it directed to right
+		// DONE: 1. Draw the flag pole (the line)
+		int flagPoleStartX = cellStartX + UI.CellWidth / 2;
+		int flagPoleStartY = cellStartY + UI.CellHeight / 4;
+		int flagPoleEndY = flagPoleStartY + UI.FlagPoleHeight;
 
-	// TODO: 1. Draw the flag pole (the line)
-	int flagPoleStartX = cellStartX + UI.CellWidth / 2;
-	int flagPoleStartY = cellStartY + UI.CellHeight / 4;
-
-	// 		 2. Draw the flag (the triangle)
+		pWind->SetPen(UI.FlagPoleColor, UI.FlagPoleWidth);
+		pWind->SetBrush(UI.FlagPoleColor);
+		pWind->DrawLine(flagPoleStartX, flagPoleStartY, flagPoleStartX, flagPoleEndY);
+		// 		 2. Draw the flag (the triangle)
+		DrawTriangle(flagPoleStartX + (UI.FlagWidth / 2), flagPoleEndY - (UI.FlagHeight / 2), UI.FlagHeight, UI.FlagWidth, RIGHT, UI.FlagColor, FILLED, 1);
+	}
 }
 
 void Output::DrawRotatingGear(const CellPosition &cellPos, bool clockwise) const

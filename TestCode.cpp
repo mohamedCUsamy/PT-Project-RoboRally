@@ -194,7 +194,10 @@ int main()
 	CellPosition flag_60(60);
 	CellPosition flag_99(99);
 
-	// TODO: Draw Flags in cell positions (flag_1, flag_60, flag_99)
+	// DONE: Draw Flags in cell positions (flag_1, flag_60, flag_99)
+	pOut->DrawFlag(flag_1);
+	pOut->DrawFlag(flag_60);
+	pOut->DrawFlag(flag_99);
 
 	pOut->PrintMessage("FINISHED - Drawing (Flags) Test,  Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
