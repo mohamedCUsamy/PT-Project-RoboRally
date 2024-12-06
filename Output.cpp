@@ -113,7 +113,7 @@ Input *Output::CreateInput() const
 
 int Output::GetCellStartX(const CellPosition &cellPos) const
 {
-	/// TODO: implement the following function as described in Output.h file
+	/// DONE: implement the following function as described in Output.h file
 
 	if (cellPos.IsValidCell())
 	{
@@ -129,7 +129,7 @@ int Output::GetCellStartX(const CellPosition &cellPos) const
 
 int Output::GetCellStartY(const CellPosition &cellPos) const
 {
-	/// TODO: implement the following function as described in Output.h file
+	/// DONE: implement the following function as described in Output.h file
 
 	if (cellPos.IsValidCell())
 	{
@@ -339,7 +339,7 @@ void Output::CreateCommandsBar(Command savedCommands[], int savedCommandsCount, 
 	CommandItemImages[MOVE_BACKWARD_THREE_STEPS] = "images\\MoveBackward3Card.jpg";
 	CommandItemImages[ROTATE_CLOCKWISE] = "images\\RotateCW.jpg";
 	CommandItemImages[ROTATE_COUNTERCLOCKWISE] = "images\\RotateCCW.jpg";
-	// TODO: Prepare images for more items with .jpg extensions and add them to the list
+	// DONE: Prepare images for more items with .jpg extensions and add them to the list
 	// DONE NADY
 	DrawSavedCommands(savedCommands, savedCommandsCount, CommandItemImages);
 	DrawAvailableCommands(availableCommands, availableCommandsCount, CommandItemImages);
@@ -460,7 +460,7 @@ void Output::DrawCell(const CellPosition &cellPos, color cellColor) const
 
 	pWind->SetBrush(cellColor);
 
-	/// TODO: Draw the Cell Rectangle using the appropriate coordinates
+	/// DONE: Draw the Cell Rectangle using the appropriate coordinates
 	//       using cellStartX, cellStartY, UI.CellWidth, UI.CellHeight
 	pWind->DrawRectangle(cellStartX, cellStartY, cellStartX + UI.CellWidth, cellStartY + UI.CellHeight);
 
@@ -470,7 +470,7 @@ void Output::DrawCell(const CellPosition &cellPos, color cellColor) const
 
 	int w = 0, h = 0;
 
-	/// TODO: Get the Width and Height of the Cell Number if written using the current font
+	/// DONE: Get the Width and Height of the Cell Number if written using the current font
 	//       (Use GetIntegerSize() window function) and set the "w" and "h" variables with its width and height
 
 	pWind->GetIntegerSize(w, h, cellNum);
@@ -481,7 +481,7 @@ void Output::DrawCell(const CellPosition &cellPos, color cellColor) const
 	int y = cellStartY + (UI.CellHeight - h - 1); // space 1 from the end of the cell height
 												  // ( - w ) because y is for the start point of cell num (num's upper corner)
 
-	/// TODO: Draw the cell number in the x and y location
+	/// DONE: Draw the cell number in the x and y location
 
 	pWind->DrawInteger(x, y, cellNum);
 }
@@ -490,7 +490,7 @@ void Output::DrawCell(const CellPosition &cellPos, color cellColor) const
 
 void Output::DrawPlayer(const CellPosition &cellPos, int playerNum, color playerColor, Direction direction) const
 {
-	// TODO: Validate the cell position and the playerNum, if not valid return
+	// DONE: Validate the cell position and the playerNum, if not valid return
 	if (cellPos.IsValidCell() && playerNum < MaxPlayerCount && playerNum >= 0)
 	{
 		// Get the X & Y coordinates of the start point of the cell (its upper left corner)
@@ -517,7 +517,7 @@ void Output::DrawPlayer(const CellPosition &cellPos, int playerNum, color player
 														  // AFTER the Belt start vertical line (assuming there is a belt)
 														  // for not overlapping with belts
 
-		// TODO: Draw the player triangle in center(x,y) and filled with the playerColor passed to the function
+		// DONE: Draw the player triangle in center(x,y) and filled with the playerColor passed to the function
 		DrawTriangle(x, y, ySpace, radius, direction, playerColor, FILLED, 1);
 	}
 }
