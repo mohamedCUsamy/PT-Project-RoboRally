@@ -279,14 +279,19 @@ int main()
 	/// 3.1- Getting Integer ///
 	/// ===========================
 	pOut->PrintMessage("3.1- (GetInteger) Test, Click to continue");
-	pIn->GetPointClicked(x, y); // Wait for any click
-
+	pIn->GetPointClicked(x, y);
+	pOut->ClearStatusBar();
 	/// TODO: Add code here to
 	// 1- Call GetInteger Function and receive its returned integer
 	// 2- Print it in the status bar in this format:   You Entered: 116
 	//    (assuming the entered number is 116)
 	// 3- Call GetPointClicked() function
-
+	int returnedinteger = pIn->GetInteger(pOut);
+	if (returnedinteger != -95469)
+		pOut->PrintMessage("You Entered: " + to_string(returnedinteger));
+	else
+		pOut->PrintMessage("Didn't enter an integer.");
+	pIn->GetPointClicked(x, y);
 	pOut->PrintMessage("FINISHED - (GetInteger) Test, Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
 
@@ -299,6 +304,12 @@ int main()
 	// 1- Call function GetCellClicked
 	// 2- Print on the status bar the vCell and hCell of the clicked cell
 	// 3- Repeat Step 1 and 2 five times
+	pOut->PrintMessage(" Click on 5 cells. ");
+	for (int i = 0; i < 5; i++)
+	{
+		CellPosition clickedCell = pIn->GetCellClicked();
+		pOut->PrintMessage("You clicked cell at vCell: " + to_string(clickedCell.VCell()) + ", hCell: " + to_string(clickedCell.HCell()));
+	}
 
 	pOut->PrintMessage("FINISHED - (GetCellClicked) Test, Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
@@ -314,6 +325,11 @@ int main()
 	// 3- print on the status bar "You Entered" then print the string
 	// NOTE: GetString() is already implemented. It is just required from you to call it
 
+	pOut->PrintMessage("Please enter a string: ");
+	string userInput = pIn->GetSrting((pOut));
+	pOut->ClearStatusBar();
+	pOut->PrintMessage("You Entered: " + userInput);
+	pIn->GetPointClicked(x, y);
 	pOut->PrintMessage("FINISHED - (GetSrting) Test, Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
 
@@ -330,41 +346,6 @@ int main()
 
 	CellPosition cellpos_1(0, 0);
 
-	for (int i = 0; i < 5; i++)
-	{
-		cout << "Enter an integer vCell : " << endl;
-		// int integer = pIn->GetInteger(pOut);
-		int integerV = 0;
-		cin >> integerV;
-		cout << "Enter an integer hCell: " << endl;
-		int integerH = 0;
-		cin >> integerH;
-		if (cellpos_1.SetHCell(integerH) && cellpos_1.SetVCell(integerV))
-		{
-			cout << "H and V cells setted success" << endl;
-			cout << "Count = " << i << endl;
-			cout << "Now the vCell = " << cellpos_1.VCell() << endl;
-			cout << "Now the hCell = " << cellpos_1.HCell() << endl;
-		}
-
-		else
-			cout << "Invalid numbers" << endl;
-
-		// pIn->GetPointClicked(x, y);
-	}
-
-	/*	for (int i = 0; i < 5; i++)
-		{
-			cout << "Enter an integer: " << endl;
-			//int integer = pIn->GetInteger(pOut);
-			int integer = 0;
-			cin >> integer;
-			cellpos_1.SetHCell(integer);
-			cout << "Now the hCell = " << cellpos_1.HCell() << endl;
-			pIn->GetPointClicked(x, y);
-		}
-		*/
-
 	///  TODO:
 	// 1-  Ask user to enter an integer and read it using GetInteger()
 	// 2-  Call SetVCell() of cellpos_1 with that integer
@@ -372,7 +353,6 @@ int main()
 	// 4-  Call GetPointClicked()
 	// 5-  Repeat the above steps FIVE TIMES
 	// 6-  Repeat all the above steps to test SetHCell() function instead with the needed modifications
-	// DONE SAMY
 
 	pOut->PrintMessage("FINISHED - (Setters with Validation) Test, Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
@@ -380,26 +360,12 @@ int main()
 	pOut->PrintMessage("4.2- (GetCellNumFromPosition) Test, Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
 
-	for (int i = 0; i < 5; i++)
-	{
-		int pos1 = 0;
-		int pos2 = 0;
-		cout << "Enter an integer: " << endl;
-		cin >> pos1;
-		cout << "Enter an integer: " << endl;
-		cin >> pos2;
-		CellPosition p1(pos1, pos2);
-		string toprint = "The CellNumber is" + to_string(p1.GetCellNum());
-		pOut->PrintMessage(toprint);
-	}
-
 	/// TODO:
 	// 1- Read from user two integers representing vCell and hCell
 	// 2- Creates a CellPosition object of them
 	// 3- Use the function GetCellNum() to get the corresponding Cell Number (it used function : GetCellNumFromPosition() inside it)
 	// 4- Print the Cell Number on the status bar
 	// 5- Repeat the above steps Five TIMES
-	// DONE SAMY
 
 	pOut->PrintMessage("FINISHED - (GetCellNumFromPosition) Test, Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
@@ -407,25 +373,13 @@ int main()
 	pOut->PrintMessage("4.3- (GetCellPositionFromNum) Test, Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
 
-	for (int i = 0; i < 5; i++)
-	{
-		cout << "Enter an integer number: " << endl;
-		int integer1 = 0;
-		cin >> integer1;
-		CellPosition c1(integer1);
-		string toprint = "The vCell is" + to_string(c1.VCell()) + " and the hCell is " + to_string(c1.HCell());
-		cout << toprint;
-		pOut->PrintMessage(toprint);
-	}
-
-	/// TODO: ||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+	/// TODO:
 	// 1- Read from user one integer representing cellNum
 	// 2- Creates a CellPosition object of that integer using that constructor:
 	//		CellPosition (int cellNum);
 	//			--> it uses the function : GetCellPositionFromNum () inside it
 	// 4- Print the Cell vCell and hCell on the status bar
 	// 5- Repeat the above steps Five TIMES
-	// DONE SAMY
 
 	pOut->PrintMessage("FINISHED - (GetCellPositionFromNum) Test, Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
@@ -439,23 +393,6 @@ int main()
 	// 3- Use the function AddCellNum() to add the addedNum to the cellNum
 	// 4- Print the vCell and hCell of the new Cell Position on the status bar
 	// 5- Repeat the above steps Four TIMES with each time a different direction
-	// DONE SAMY
-
-	for (int i = 0; i < 4; i++)
-	{
-		cout << "Enter cell number: " << endl;
-		int CellNum = 0;
-		cout << "---------------------------------" << endl;
-		cin >> CellNum;
-		cout << "Enter cell number: " << endl;
-		int addNum = 0;
-		cin >> addNum;
-
-		CellPosition c1(CellNum);
-		c1.AddCellNum(addNum, RIGHT);
-		string toprint = "The vCell is" + to_string(c1.VCell()) + " and the hCell is " + to_string(c1.HCell());
-		pOut->PrintMessage(toprint);
-	}
 
 	pOut->PrintMessage("FINISHED - (AddCellNum) Test, Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
@@ -495,7 +432,46 @@ int main()
 
 			break;
 
-			/// TODO:  ADD Cases similarly for ALL the remaining actions of DESIGN Mode
+		case Add_Antenna:
+			pOut->PrintMessage("Action: Add Antenna,");
+			break;
+
+		case Add_Flag:
+			pOut->PrintMessage("Action: Add_Flag , Click anywhere");
+			break;
+		case Add_Belt:
+			pOut->PrintMessage("Action: Add_Belt , Click anywhere");
+			break;
+		case Add_Water_Pit:
+			pOut->PrintMessage("Action: Add_Water_Pit , Click anywhere");
+			break;
+		case Add_Danger_Zone:
+			pOut->PrintMessage("Action: Add_Danger_Zone , Click anywhere");
+			break;
+		case Add_Workshop:
+			pOut->PrintMessage("Action: Add_Workshop , Click anywhere");
+			break;
+		case Add_Rotating_Gear:
+			pOut->PrintMessage("Action: Add_Rotating_Gear , Click anywhere");
+			break;
+		case Copy_Game_Object:
+			pOut->PrintMessage("Action: Copy_Game_Object , Click anywhere");
+			break;
+		case Cut_Game_Object:
+			pOut->PrintMessage("Action: Cut_Game_Object , Click anywhere");
+			break;
+		case Paste_Game_Object:
+			pOut->PrintMessage("Action: Paste_Game_Object , Click anywhere");
+			break;
+		case Delete_Game_Object:
+			pOut->PrintMessage("Action: Delete_Game_Object , Click anywhere");
+			break;
+		case Save_Grid:
+			pOut->PrintMessage("Action: Save_Grid , Click anywhere");
+			break;
+		case Load_OR_Open_Grid:
+			pOut->PrintMessage("Action: Load_OR_Open_Grid , Click anywhere");
+			break;
 
 		case EXECUTE_COMMANDS:
 			pOut->PrintMessage("Action: EXECUTE_COMMAND , Click anywhere");
@@ -504,6 +480,10 @@ int main()
 			pOut->PrintMessage("Action: SELECT_COMMAND , Select a command");
 			clickedCommandItemIndex = pIn->GetSelectedCommandIndex();
 			pOut->PrintMessage("Action: SELECT_COMMAND " + to_string(clickedCommandItemIndex) + " , Click anywhere");
+			break;
+
+		case EMPTY:
+			pOut->PrintMessage("Action: EMPTY , Click anywhere");
 			break;
 
 		case GRID_AREA:
@@ -519,7 +499,21 @@ int main()
 			pOut->CreateDesignModeToolBar();
 			break;
 
-			/// TODO:  ADD Cases similarly for ALL the remaining actions of PLAY Mode
+		case Select_Movement_Commands:
+			pOut->PrintMessage("Action: Select_Movement_Commands , Click anywhere");
+			break;
+		case Execute_Saved_Commands:
+			pOut->PrintMessage("Action: Execute_Saved_Commands , Click anywhere");
+			break;
+		case Reboot_and_Repair:
+			pOut->PrintMessage("Action: Reboot_and_Repair , Click anywhere");
+			break;
+		case Use_Consumable:
+			pOut->PrintMessage("Action: Use_Consumable , Click anywhere");
+			break;
+		case New_Game:
+			pOut->PrintMessage("Action: New_Game , Click anywhere");
+			break;
 		}
 	} while (ActType != EXIT);
 

@@ -288,11 +288,9 @@ void Output::CreateDesignModeToolBar() const
 
 	/// DONE: Prepare images for each menu item and add it to the list
 
-	// DONE NADY BARDO
-	// lama n4oof a5rtha eyh
-
+	// DONE NADY
 	// Draw menu item one image at a time
-	for (int i = 0; i < DESIGN_ITM_COUNT; i++)
+	for (int i = 0; i < 15; i++)
 		pWind->DrawImage(MenuItemImages[i], i * UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
 }
 

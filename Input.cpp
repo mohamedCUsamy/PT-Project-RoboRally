@@ -48,11 +48,14 @@ int Input::GetInteger(Output *pO) const
 	//       using function GetString() defined above and function stoi()
 
 	string userinput = GetSrting(pO);
+	for (int i = 0; i < userinput.length(); i++)
+	{
+		if (isdigit(userinput[i]) == false)
+		{
+			return -95469;
+		}
+	}
 	return stoi(userinput);
-
-	// Note: stoi(s) converts string s into its equivalent integer (for example, "55" is converted to 55)
-
-	return 0; // this line should be changed with your implementation
 }
 
 //======================================================================================//
@@ -173,9 +176,14 @@ ActionType Input::GetUserAction() const
 				return EMPTY; // A click on empty place in toolbar
 			}
 		}
-		//
+		// [2] User clicks on the grid area
+		if ((y >= UI.ToolBarHeight) && (y < UI.height - UI.StatusBarHeight))
+		{
+			return GRID_AREA;
+		}
 
-		return TO_DESIGN_MODE; // just for now ==> This should be updated
+		// [3] User clicks on the status bar
+		return STATUS;
 	}
 }
 
