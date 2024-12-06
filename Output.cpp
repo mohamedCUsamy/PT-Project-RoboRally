@@ -60,6 +60,9 @@ Output::Output()
 	UI.FlagColor = RED;
 	UI.FlagPoleColor = GHOSTWHITE;
 
+	// Water Color
+	UI.WaterPitsCellColor = NAVYBLUE;
+
 	// Commands X and Y Coordinates
 	UI.SpaceBetweenCommandsSlots = 10;
 	UI.AvailableCommandsXOffset = (UI.CommandItemWidth + UI.SpaceBetweenCommandsSlots) * 6;
@@ -558,7 +561,10 @@ void Output::DrawDangerZone(const CellPosition &cellPos) const
 
 void Output::DrawWaterPit(const CellPosition &cellPos) const
 {
-	/// TODO: Complete the implementation of the following function
+	/// DONE: Complete the implementation of the following function
+
+	if (cellPos.GetCellNum() != 1 && cellPos.IsValidCell())
+		DrawCell(cellPos, UI.WaterPitsCellColor);
 }
 
 Output::~Output()

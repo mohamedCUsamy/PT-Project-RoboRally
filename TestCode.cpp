@@ -121,9 +121,9 @@ int main()
 
 	// TODO: Draw Water Pits in cell_10 and cell_53 and cell_1 (Invalid)
 
-	// pOut->DrawWaterPit(cell_1);
-	// pOut->DrawWaterPit(cell_10);
-	// pOut->DrawWaterPit(cell_53);
+	pOut->DrawWaterPit(cell_1);
+	pOut->DrawWaterPit(cell_10);
+	pOut->DrawWaterPit(cell_53);
 
 	pOut->PrintMessage("FINISHED - Drawing (Water Pits) Test,  Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
