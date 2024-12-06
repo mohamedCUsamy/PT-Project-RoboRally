@@ -157,7 +157,7 @@ void Output::DrawTriangle(int triangleCenterX, int triangleCenterY, int triangle
 {
 	int x1, y1, x2, y2, x3, y3;
 
-	/// TODO: Calculate the coordiantes of the 3 vertices of the triangle based on the passed parameters
+	/// DONE: Calculate the coordiantes of the 3 vertices of the triangle based on the passed parameters
 
 	if (direction == UP)
 	{
@@ -168,7 +168,41 @@ void Output::DrawTriangle(int triangleCenterX, int triangleCenterY, int triangle
 		x3 = triangleCenterX;
 		y3 = triangleCenterY - triangleHeight / 2;
 	}
-	/// TODO: Continue the implementation
+	else if (direction == DOWN)
+	{
+		// Downward pointing triangle
+		x1 = triangleCenterX - triangleWidth / 2;
+		y1 = triangleCenterY - triangleHeight / 2;
+		x2 = triangleCenterX + triangleWidth / 2;
+		y2 = triangleCenterY - triangleHeight / 2;
+		x3 = triangleCenterX;
+		y3 = triangleCenterY + triangleHeight / 2;
+	}
+	else if (direction == LEFT)
+	{
+		// Leftward pointing triangle
+		x1 = triangleCenterX + triangleWidth / 2;
+		y1 = triangleCenterY - triangleHeight / 2;
+		x2 = triangleCenterX + triangleWidth / 2;
+		y2 = triangleCenterY + triangleHeight / 2;
+		x3 = triangleCenterX - triangleWidth / 2;
+		y3 = triangleCenterY;
+	}
+	else if (direction == RIGHT)
+	{
+		// Rightward pointing triangle
+		x1 = triangleCenterX - triangleWidth / 2;
+		y1 = triangleCenterY - triangleHeight / 2;
+		x2 = triangleCenterX - triangleWidth / 2;
+		y2 = triangleCenterY + triangleHeight / 2;
+		x3 = triangleCenterX + triangleWidth / 2;
+		y3 = triangleCenterY;
+	}
+
+	/// DONE: Continue the implementation
+	pWind->SetPen(triangleColor, penWidth);
+	pWind->SetBrush(triangleColor);
+	pWind->DrawTriangle(x1, y1, x2, y2, x3, y3, style);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -460,32 +494,35 @@ void Output::DrawCell(const CellPosition &cellPos, color cellColor) const
 void Output::DrawPlayer(const CellPosition &cellPos, int playerNum, color playerColor, Direction direction) const
 {
 	// TODO: Validate the cell position and the playerNum, if not valid return
+	if (cellPos.IsValidCell() && playerNum < MaxPlayerCount && playerNum >= 0)
+	{
+		// Get the X & Y coordinates of the start point of the cell (its upper left corner)
+		int cellStartX = GetCellStartX(cellPos);
+		int cellStartY = GetCellStartY(cellPos);
 
-	// Get the X & Y coordinates of the start point of the cell (its upper left corner)
-	int cellStartX = GetCellStartX(cellPos);
-	int cellStartY = GetCellStartY(cellPos);
+		// Calculate the Radius of the Player's Triangle
+		int radius = UI.CellWidth / 14; // proportional to cell width
 
-	// Calculate the Radius of the Player's Triangle
-	int radius = UI.CellWidth / 14; // proportional to cell width
+		// Calculate the horizontal space before drawing players triangles (space from the left border of the cell)
+		int ySpace = UI.CellHeight / 6; // proportional to cell height
 
-	// Calculate the horizontal space before drawing players triangles (space from the left border of the cell)
-	int ySpace = UI.CellHeight / 6; // proportional to cell height
+		// Note: Players' Triangles Locations depending on "playerNum" is as follows:
+		// Player_0
+		// Player_1
 
-	// Note: Players' Triangles Locations depending on "playerNum" is as follows:
-	// Player_0
-	// Player_1
+		// Calculate the Y coordinate of the center of the player's triangle (based on playerNum)
+		int y = cellStartY + ySpace + radius + 2;
+		if (playerNum == 1)
+			y += 2 * (radius + 2); // because playerNum 1 is drawn in the second row of triangles
 
-	// Calculate the Y coordinate of the center of the player's triangle (based on playerNum)
-	int y = cellStartY + ySpace + radius + 2;
-	if (playerNum == 1)
-		y += 2 * (radius + 2); // because playerNum 1 is drawn in the second row of triangles
+		// Calculate the X coordinate of the center of the player's triangle (based on playerNum)
+		int x = cellStartX + UI.BeltXOffset + radius + 4; // UI.BeltXOffset is used to draw players' triangles
+														  // AFTER the Belt start vertical line (assuming there is a belt)
+														  // for not overlapping with belts
 
-	// Calculate the X coordinate of the center of the player's triangle (based on playerNum)
-	int x = cellStartX + UI.BeltXOffset + radius + 4; // UI.BeltXOffset is used to draw players' triangles
-													  // AFTER the Belt start vertical line (assuming there is a belt)
-													  // for not overlapping with belts
-
-	// TODO: Draw the player triangle in center(x,y) and filled with the playerColor passed to the function
+		// TODO: Draw the player triangle in center(x,y) and filled with the playerColor passed to the function
+		DrawTriangle(x, y, ySpace, radius, direction, playerColor, FILLED, 1);
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////

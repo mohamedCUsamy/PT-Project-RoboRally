@@ -154,24 +154,32 @@ int main()
 	CellPosition player_15(2, 18);
 	CellPosition player_99(2, 5);
 
-	/// TODO: Call Function DrawPlayer of Class Ouput Multiple Times
+	/// DONE: Call Function DrawPlayer of Class Ouput Multiple Times
 	///        to draw the following players:
 	///        playerNum (0) with color (PlayerColors[0] defined in UI object)
 	///			in cell position (player_1 declared above) pointing to right direction
+	pOut->DrawPlayer(player_1, 0, UI.PlayerColors[0], RIGHT);
 	///        playerNum (1) with color (PlayerColors[1] defined in UI object)
 	///			in cell position (player_1 declared above) pointing to the up direction
+	pOut->DrawPlayer(player_1, 1, UI.PlayerColors[1], UP);
 	///        playerNum (2) with color (PlayerColors[2] defined in UI object)
 	///			in cell position (player_1 declared above) pointing to the down direction --> Invalid
+	pOut->DrawPlayer(player_1, 2, UI.PlayerColors[2], DOWN);
 	///        playerNum (3) with color (PlayerColors[3] defined in UI object)
 	///			in cell position (player_1 declared above) pointing to the left direction --> Invalid
+	pOut->DrawPlayer(player_1, 3, UI.PlayerColors[3], LEFT);
 	///        playerNum (0) with color (PlayerColors[0] defined in UI object)
 	///			in cell position (player_15 declared above) pointing to the left direction --> Invalid
+	pOut->DrawPlayer(player_15, 0, UI.PlayerColors[0], LEFT);
 	///        playerNum (1) with color (PlayerColors[1] defined in UI object)
 	///			in cell position (player_99 declared above) pointing up
+	pOut->DrawPlayer(player_99, 1, UI.PlayerColors[1], UP);
 	///        playerNum (5) with color (PlayerColors[1] defined in UI object)
 	///			in cell position (player_99 declared above) pointing down--> Invalid
+	pOut->DrawPlayer(player_99, 5, UI.PlayerColors[1], DOWN);
 	///        playerNum (-1) with color (PlayerColors[1] defined in UI object)
 	///			in cell position (player_99 declared above) pointing left--> Invalid
+	pOut->DrawPlayer(player_99, -1, UI.PlayerColors[1], LEFT);
 
 	pOut->PrintMessage("FINISHED - Drawing (Players) Test,  Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
