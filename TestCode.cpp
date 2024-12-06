@@ -136,6 +136,9 @@ int main()
 	CellPosition cell_20(20); // cell num 20
 	CellPosition cell_60(60); // cell num 60
 
+	pOut->DrawDangerZone(cell_20);
+	pOut->DrawDangerZone(cell_60);
+
 	// TODO: Draw DangerZone in cell_20, [cell_60 and cell_1] (Invalid)
 
 	pOut->PrintMessage("FINISHED - Drawing (DangerZone) Test,  Click to continue");

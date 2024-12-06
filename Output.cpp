@@ -63,6 +63,9 @@ Output::Output()
 	// Water Color
 	UI.WaterPitsCellColor = NAVYBLUE;
 
+	// Danger Zone Color
+	UI.DangerZoneCellColor = ORANGERED;
+
 	// Commands X and Y Coordinates
 	UI.SpaceBetweenCommandsSlots = 10;
 	UI.AvailableCommandsXOffset = (UI.CommandItemWidth + UI.SpaceBetweenCommandsSlots) * 6;
@@ -556,7 +559,9 @@ void Output::DrawWorkshop(const CellPosition &cellPos) const
 
 void Output::DrawDangerZone(const CellPosition &cellPos) const
 {
-	/// TODO: Complete the implementation of the following function
+	/// DONE: Complete the implementation of the following function
+	if (cellPos.GetCellNum() != 1 && cellPos.IsValidCell())
+		DrawCell(cellPos, UI.DangerZoneCellColor);
 }
 
 void Output::DrawWaterPit(const CellPosition &cellPos) const
