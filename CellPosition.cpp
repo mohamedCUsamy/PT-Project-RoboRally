@@ -109,17 +109,32 @@ CellPosition CellPosition::GetCellPositionFromNum(int cellNum) // return and pos
 	int v = 0;
 	int h = 0;
 	if (cellNum <= 11 && cellNum >= 1)
+	{
 		v = 4;
+		h = cellNum - 1;
+	}
 	else if (cellNum >= 12 && cellNum <= 22)
+	{
 		v = 3;
+		h = cellNum - 12;
+	}
 	else if (cellNum >= 23 && cellNum <= 33)
+	{
 		v = 2;
+		h = cellNum - 23;
+	}
 	else if (cellNum >= 34 && cellNum <= 44)
+	{
 		v = 1;
+		h = cellNum - 34;
+	}
 	else if (cellNum >= 45 && cellNum <= 55)
+	{
 		v = 0;
+		h = cellNum - 45;
+	}
 
-	h = cellNum - 1 - 11 * v;
+	//	h = cellNum - 1 - 11 * v;
 	// 28    w el v=2      // -> h=cellNum-1 -11*v
 	position.SetHCell(h);
 	position.SetVCell(v);
@@ -134,14 +149,22 @@ void CellPosition::AddCellNum(int addedNum, Direction direction)
 
 	if (direction == UP && (VCell() - addedNum) >= 0)
 		SetVCell(VCell() - addedNum);
+	else if ((VCell() - addedNum) < 0)
+		SetVCell(0);
 
 	if (direction == DOWN && (VCell() + addedNum) < 5)
 		SetVCell(VCell() + addedNum);
+	else if ((VCell() + addedNum) < 5)
+		SetVCell(4);
 
 	if (direction == RIGHT && (HCell() + addedNum) < 11)
 		SetHCell(HCell() + addedNum);
+	else if ((HCell() + addedNum) < 11)
+		SetHCell(11);
 
 	if (direction == LEFT && (HCell() - addedNum) >= 0)
 		SetHCell(HCell() - addedNum);
+	else if ((HCell() - addedNum) >= 0)
+		SetHCell(0);
 }
 // done
