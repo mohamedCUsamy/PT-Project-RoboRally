@@ -48,6 +48,8 @@ int Input::GetInteger(Output *pO) const
 	//       using function GetString() defined above and function stoi()
 
 	string userinput = GetSrting(pO);
+	if (userinput.length() == 0)
+		return -95469;
 	for (int i = 0; i < userinput.length(); i++)
 	{
 		if (isdigit(userinput[i]) == false)
