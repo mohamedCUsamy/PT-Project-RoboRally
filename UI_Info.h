@@ -23,7 +23,6 @@ enum DESIGN_MODE_ITEMS // The items of the Design Mode (you should add more item
 	// Note: Items MUST be ordered here as they appear in menu
 	// If you want to change the menu items order, change the order here
 
-	ITM_SET_FLAG_CELL,
 	ITM_EXIT,
 	ITM_SWITCH_TO_PLAY_MODE,
 
@@ -51,14 +50,12 @@ enum PLAY_MODE_ITEMS // The items of the Play Mode (you should add more items)
 	// Note: Items are ordered here as they appear in menu
 	// If you want to change the menu items order, change the order here
 
-	ITM_EXECUTE_COMMANDS,
-	ITM_SELECT_COMMAND,
 	ITM_SWITCH_TO_DESIGN_MODE,
 
 	/// TODO: Add more items names here
 	//             ali
-	ITM_Select_Movement_Commands,
-	ITM_Execute_Saved_Commands,
+	ITM_EXECUTE_COMMANDS,
+	ITM_SELECT_COMMAND,
 	ITM_Reboot_and_Repair,
 	ITM_Use_Consumable,
 	ITM_New_Game,

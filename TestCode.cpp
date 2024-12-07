@@ -641,15 +641,10 @@ int main()
 		int clickedCommandItemIndex; // if the action is SELECT_COMMAND, this will have the icon index
 		switch (ActType)
 		{
-		case SET_FLAG_CELL:
-			pOut->PrintMessage("Action: SET_FLAG_CELL , Click anywhere");
-			break;
-
 		case EXIT:
 			break;
 
 		case TO_PLAY_MODE:
-
 			pOut->PrintMessage("Action: TO_PLAY_MODE , Click anywhere");
 			pOut->CreatePlayModeToolBar();
 
@@ -657,11 +652,9 @@ int main()
 			//        the one given in the screenshot of project document
 
 			break;
-
 		case Add_Antenna:
 			pOut->PrintMessage("Action: Add Antenna,");
 			break;
-
 		case Add_Flag:
 			pOut->PrintMessage("Action: Add_Flag , Click anywhere");
 			break;
@@ -698,7 +691,6 @@ int main()
 		case Load_OR_Open_Grid:
 			pOut->PrintMessage("Action: Load_OR_Open_Grid , Click anywhere");
 			break;
-
 		case EXECUTE_COMMANDS:
 			pOut->PrintMessage("Action: EXECUTE_COMMAND , Click anywhere");
 			break;
@@ -707,29 +699,18 @@ int main()
 			clickedCommandItemIndex = pIn->GetSelectedCommandIndex();
 			pOut->PrintMessage("Action: SELECT_COMMAND " + to_string(clickedCommandItemIndex) + " , Click anywhere");
 			break;
-
 		case EMPTY:
 			pOut->PrintMessage("Action: EMPTY , Click anywhere");
 			break;
-
 		case GRID_AREA:
 			pOut->PrintMessage("Action: GRID_AREA , Click anywhere");
 			break;
-
 		case STATUS:
 			pOut->PrintMessage("Action: STATUS , Click anywhere");
 			break;
-
 		case TO_DESIGN_MODE:
 			pOut->PrintMessage("Action: TO_DESIGN_MODE , Click anywhere");
 			pOut->CreateDesignModeToolBar();
-			break;
-
-		case Select_Movement_Commands:
-			pOut->PrintMessage("Action: Select_Movement_Commands , Click anywhere");
-			break;
-		case Execute_Saved_Commands:
-			pOut->PrintMessage("Action: Execute_Saved_Commands , Click anywhere");
 			break;
 		case Reboot_and_Repair:
 			pOut->PrintMessage("Action: Reboot_and_Repair , Click anywhere");

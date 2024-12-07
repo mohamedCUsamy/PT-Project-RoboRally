@@ -272,13 +272,12 @@ void Output::CreateDesignModeToolBar() const
 	MenuItemImages[ITM_SWITCH_TO_PLAY_MODE] = "images\\Menu_SwitchToGame.jpg";
 
 	/// SEMIDONE: Change the path of the images as needed
-	MenuItemImages[ITM_SET_FLAG_CELL] = "images\\Menu_Dice.jpg";
 	MenuItemImages[ITM_Add_Flag] = "images\\Design\\flag.jpg";
 	MenuItemImages[ITM_Add_Antenna] = "images\\Design\\antenna.jpg";
 	MenuItemImages[ITM_Add_Belt] = "images\\Design\\belt.jpg";
 	MenuItemImages[ITM_Add_Water_Pit] = "images\\Design\\water.jpg";
 	MenuItemImages[ITM_Add_Danger_Zone] = "images\\Design\\danger.jpg";
-	MenuItemImages[ITM_Add_Workshop] = "images\\Workshop.jpg";
+	MenuItemImages[ITM_Add_Workshop] = "images\\Design\\Workshop.jpg";
 	MenuItemImages[ITM_Add_Rotating_Gear] = "images\\Design\\gear.jpg";
 	MenuItemImages[ITM_Copy_Game_Object] = "images\\Design\\copy.jpg";
 	MenuItemImages[ITM_Cut_Game_Object] = "images\\Design\\cut.jpg";
@@ -314,13 +313,11 @@ void Output::CreatePlayModeToolBar() const
 	MenuItemImages[ITM_SWITCH_TO_DESIGN_MODE] = "images\\Menu_SwitchToGrid.jpg";
 
 	/// TODO: Change the path of the images as needed
-	MenuItemImages[ITM_EXECUTE_COMMANDS] = "images\\Menu_Dice.jpg";
-	MenuItemImages[ITM_SELECT_COMMAND] = "images\\Menu_Dice.jpg";
-	MenuItemImages[ITM_Select_Movement_Commands] = "images\\Menu_Dice.jpg";
-	MenuItemImages[ITM_Execute_Saved_Commands] = "images\\Menu_Dice.jpg";
-	MenuItemImages[ITM_Reboot_and_Repair] = "images\\Menu_Dice.jpg";
-	MenuItemImages[ITM_Use_Consumable] = "images\\Menu_Dice.jpg";
-	MenuItemImages[ITM_New_Game] = "images\\Menu_Dice.jpg";
+	MenuItemImages[ITM_EXECUTE_COMMANDS] = "images\\Play\\execute.jpg";
+	MenuItemImages[ITM_SELECT_COMMAND] = "images\\Play\\select.jpg";
+	MenuItemImages[ITM_Reboot_and_Repair] = "images\\Play\\repair.jpg";
+	MenuItemImages[ITM_Use_Consumable] = "images\\Play\\consume.jpg";
+	MenuItemImages[ITM_New_Game] = "images\\Play\\create.jpg";
 	/// TODO: Prepare images for each menu item and add it to the list
 
 	// Draw menu item one image at a time
@@ -633,7 +630,7 @@ void Output::DrawWorkshop(const CellPosition &cellPos) const
 	// DONE: Draw the workshop image in the cell
 	int width = UI.CellWidth / 2;
 	int height = UI.CellHeight / 2;
-	DrawImageInCell(cellPos, "images\\Workshop.jpg", width, height);
+	DrawImageInCell(cellPos, "images\\Design\\Workshop.jpg", width, height);
 }
 
 void Output::DrawDangerZone(const CellPosition &cellPos) const

@@ -85,8 +85,6 @@ ActionType Input::GetUserAction() const
 
 			switch (clickedItemOrder)
 			{
-			case ITM_SET_FLAG_CELL:
-				return SET_FLAG_CELL;
 			case ITM_EXIT:
 				return EXIT;
 			case ITM_SWITCH_TO_PLAY_MODE:
@@ -158,10 +156,10 @@ ActionType Input::GetUserAction() const
 			switch (clickedItemOrder)
 			{
 
-			case ITM_Select_Movement_Commands:
-				return Select_Movement_Commands;
-			case ITM_Execute_Saved_Commands:
-				return Execute_Saved_Commands;
+			case ITM_SELECT_COMMAND:
+				return SELECT_COMMAND;
+			case ITM_EXECUTE_COMMANDS:
+				return EXECUTE_COMMANDS;
 			case ITM_Reboot_and_Repair:
 				return Reboot_and_Repair;
 			case ITM_Use_Consumable:
@@ -170,8 +168,6 @@ ActionType Input::GetUserAction() const
 				return New_Game;
 			case ITM_SWITCH_TO_DESIGN_MODE:
 				return TO_DESIGN_MODE;
-			case ITM_EXIT:
-				return EXIT;
 
 				//
 			default:

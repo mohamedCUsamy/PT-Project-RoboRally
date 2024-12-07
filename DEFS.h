@@ -8,9 +8,8 @@
 enum ActionType // The actions supported (add more as needed)
 {
 	//  [1] Actions of Design Mode
-	SET_FLAG_CELL, // Set Flag on a Cell
-	EXIT,		   // Exit Application
-	TO_PLAY_MODE,  // Go to Play Mode
+	EXIT,		  // Exit Application
+	TO_PLAY_MODE, // Go to Play Mode
 
 	/// TODO: Add more action types of Design Mode
 	//              ali    dool bto3 el design mode
@@ -31,15 +30,12 @@ enum ActionType // The actions supported (add more as needed)
 
 	//  [2] Actions of Play Mode
 
-	EXECUTE_COMMANDS, // Execute the saved commands
-	SELECT_COMMAND,	  // Select a command from the available ones to be executed
-
 	TO_DESIGN_MODE, // Go to Design Mode
 
 	/// TODO: Add more action types of Play Mode
 	//                    ali   dool bto3 el play mode
-	Select_Movement_Commands,
-	Execute_Saved_Commands,
+	EXECUTE_COMMANDS, // Execute the saved commands
+	SELECT_COMMAND,	  // Select a command from the available ones to be executed
 	Reboot_and_Repair,
 	Use_Consumable,
 	New_Game,
