@@ -291,7 +291,7 @@ void Output::CreateDesignModeToolBar() const
 
 	// DONE NADY
 	// Draw menu item one image at a time
-	for (int i = 0; i < 15; i++)
+	for (int i = 0; i < DESIGN_ITM_COUNT; i++)
 		pWind->DrawImage(MenuItemImages[i], i * UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
 }
 
@@ -316,7 +316,11 @@ void Output::CreatePlayModeToolBar() const
 	/// TODO: Change the path of the images as needed
 	MenuItemImages[ITM_EXECUTE_COMMANDS] = "images\\Menu_Dice.jpg";
 	MenuItemImages[ITM_SELECT_COMMAND] = "images\\Menu_Dice.jpg";
-
+	MenuItemImages[ITM_Select_Movement_Commands] = "images\\Menu_Dice.jpg";
+	MenuItemImages[ITM_Execute_Saved_Commands] = "images\\Menu_Dice.jpg";
+	MenuItemImages[ITM_Reboot_and_Repair] = "images\\Menu_Dice.jpg";
+	MenuItemImages[ITM_Use_Consumable] = "images\\Menu_Dice.jpg";
+	MenuItemImages[ITM_New_Game] = "images\\Menu_Dice.jpg";
 	/// TODO: Prepare images for each menu item and add it to the list
 
 	// Draw menu item one image at a time

@@ -171,7 +171,7 @@ ActionType Input::GetUserAction() const
 			case ITM_SWITCH_TO_DESIGN_MODE:
 				return TO_DESIGN_MODE;
 			case ITM_EXIT:
-				return Exit;
+				return EXIT;
 
 				//
 			default:

@@ -27,7 +27,6 @@ enum ActionType // The actions supported (add more as needed)
 	Delete_Game_Object,
 	Save_Grid,
 	Load_OR_Open_Grid,
-	Exit,
 	//
 
 	//  [2] Actions of Play Mode
