@@ -650,7 +650,7 @@ int main()
 
 			/// TODO:  Call Function (PrintPlayersInfo) of Class Output with a string similar to
 			//        the one given in the screenshot of project document
-
+			pOut->PrintPlayersInfo("P1(2, Right, 10), P2(2, Up, 10) | Curr = P1");
 			break;
 		case Add_Antenna:
 			pOut->PrintMessage("Action: Add Antenna,");

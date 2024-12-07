@@ -423,7 +423,7 @@ void Output::PrintMessage(string msg) const // Prints a message on status bar
 void Output::PrintPlayersInfo(string info)
 {
 	/// TODO: Clear what was written on the toolbar
-
+	CreatePlayModeToolBar();
 	// One of the correct ways to implement the above TODO is to call CreatePlayModeToolBar();
 	// to clear what was written in the player info (there are other ways too � You are free to use any)
 
@@ -435,6 +435,7 @@ void Output::PrintPlayersInfo(string info)
 
 	/// TODO: Calculate the Width and Height of the string if drawn using the current font
 	//       (Use GetStringSize() window function) and set the "w" and "h" variables with its width and height
+	pWind->GetStringSize(w, h, info);
 
 	// Set the start X & Y coordinate of drawing the string
 	int x = UI.width - w - 20;			// space 20 before the right-side of the window
@@ -442,6 +443,7 @@ void Output::PrintPlayersInfo(string info)
 	int y = (UI.ToolBarHeight - h) / 2; // in the Middle of the toolbar height
 
 	/// TODO: Draw the string "info" in the specified location (x, y)
+	pWind->DrawString(x, y, info);
 }
 
 //======================================================================================//
