@@ -524,7 +524,12 @@ void Output::DrawPlayer(const CellPosition &cellPos, int playerNum, color player
 
 void Output::DrawBelt(const CellPosition &fromCellPos, const CellPosition &toCellPos) const
 {
-	// TODO: Validate the fromCell and toCell (Must be Horizontal or Vertical, and we can't have the first cell as a starting cell for a belt)
+	bool isVertical = (fromCellPos.HCell() == toCellPos.HCell()) && (fromCellPos.VCell() != toCellPos.VCell());
+	bool isHorizontal = (fromCellPos.VCell() == toCellPos.VCell()) && (fromCellPos.HCell() != toCellPos.HCell());
+
+	// DONE: Validate the fromCell and toCell (Must be Horizontal or Vertical, and we can't have the first cell as a starting cell for a belt)
+	if (fromCellPos.GetCellNum() == 1 || !fromCellPos.IsValidCell() || !toCellPos.IsValidCell() || (!isVertical && !isHorizontal))
+		return;
 
 	// Get the start X and Y coordinates of the upper left corner of the fromCell and toCell
 	int fromCellStartX = GetCellStartX(fromCellPos);
@@ -533,20 +538,34 @@ void Output::DrawBelt(const CellPosition &fromCellPos, const CellPosition &toCel
 	int toCellStartY = GetCellStartY(toCellPos);
 
 	int beltFromCellX = fromCellStartX + (UI.CellWidth / 2) + UI.BeltXOffset;
-	int beltToCellX = toCellStartX + UI.BeltXOffset;
+	int beltToCellX = toCellStartX + (UI.CellWidth / 2) + UI.BeltXOffset;
 
 	int beltFromCellY = fromCellStartY + UI.BeltYOffset;
 	int beltToCellY = toCellStartY + UI.BeltYOffset;
 
-	// TODO: Draw the belt line and the triangle at the center of the line pointing to the direction of the belt
+	// DONE: Draw the belt line and the triangle at the center of the line pointing to the direction of the belt
 
-	// TODO: 1. Set pen color and width using the appropriate parameters of UI_Info object (UI)
+	// DONE: 1. Set pen color and width using the appropriate parameters of UI_Info object (UI)
+	pWind->SetPen(UI.BeltColor, UI.BeltLineWidth);
+	pWind->SetBrush(UI.BeltColor);
 	//       2. Draw the line of the belt using the appropriate coordinates
+	pWind->DrawLine(beltFromCellX, beltFromCellY, beltToCellX, beltToCellY);
 
-	// TODO: Draw the triangle at the center of the belt line pointing to the direction of the belt
+	// DONE: Draw the triangle at the center of the belt line pointing to the direction of the belt
 
 	int triangleWidth = UI.CellWidth / 4;
 	int triangleHeight = UI.CellHeight / 4;
+
+	int centerX = isHorizontal ? (beltFromCellX + beltToCellX) / 2 : beltFromCellX;
+	int centerY = isVertical ? (beltFromCellY + beltToCellY) / 2 : beltFromCellY;
+
+	Direction direction;
+	if (isHorizontal)
+		direction = fromCellPos.GetCellNum() > toCellPos.GetCellNum() ? LEFT : RIGHT;
+	else
+		direction = fromCellPos.GetCellNum() > toCellPos.GetCellNum() ? DOWN : UP;
+
+	DrawTriangle(centerX, centerY, triangleHeight, triangleWidth, direction, UI.BeltColor, FILLED, 1);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////

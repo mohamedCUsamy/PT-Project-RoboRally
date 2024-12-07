@@ -214,13 +214,19 @@ int main()
 	CellPosition belt_end_3(32);
 	CellPosition belt_end_4(33);
 
-	// TODO: Draw 5 belts
+	// DONE: Draw 5 belts
 	//		1- from belt_start_1 to belt_end_1
-	//		2- from belt_start_2 to belt_end_2
-	//		3- from belt_start_3 to belt_end_3
-	//		4- from belt_start_3 to belt_end_4 --> Invalid
-	//		5- from belt_end_1 to belt_end_2 --> Invalid
-	// 		6- from belt_end_3 to belt_end_4 --> Invalid
+	pOut->DrawBelt(belt_start_1, belt_end_1);
+	// 2- from belt_start_2 to belt_end_2
+	pOut->DrawBelt(belt_start_2, belt_end_2);
+	// 3- from belt_start_3 to belt_end_3
+	pOut->DrawBelt(belt_start_3, belt_end_3);
+	// 4- from belt_start_3 to belt_end_4 --> Invalid
+	pOut->DrawBelt(belt_start_3, belt_end_4);
+	// 5- from belt_end_1 to belt_end_2 --> Invalid
+	pOut->DrawBelt(belt_end_1, belt_end_2);
+	// 6- from belt_end_3 to belt_end_4 --> Invalid
+	pOut->DrawBelt(belt_end_3, belt_end_4);
 
 	pOut->PrintMessage("FINISHED - Drawing (Belts) Test,  Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
