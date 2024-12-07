@@ -280,6 +280,7 @@ int main()
 	// TEST 3:
 	//			Input Class - Part 1
 	///////////////////////////////////////////////////////////////////////////////////
+	UI.InterfaceMode = MODE_DESIGN;
 
 	pOut->PrintMessage("TEST3: Now Time to test class [ Input ], Click to continue");
 	pIn->GetPointClicked(x, y); // Wait for any click
@@ -288,12 +289,12 @@ int main()
 	/// ===========================
 	pOut->PrintMessage("3.1- (GetInteger) Test, Click to continue");
 	pIn->GetPointClicked(x, y);
-	pOut->ClearStatusBar();
 	/// TODO: Add code here to
 	// 1- Call GetInteger Function and receive its returned integer
 	// 2- Print it in the status bar in this format:   You Entered: 116
 	//    (assuming the entered number is 116)
 	// 3- Call GetPointClicked() function
+	pOut->PrintMessage("Enter an integer: ");
 	int returnedinteger = pIn->GetInteger(pOut);
 	if (returnedinteger != -95469)
 		pOut->PrintMessage("You Entered: " + to_string(returnedinteger));
