@@ -214,6 +214,7 @@ void Output::DrawImageInCell(const CellPosition &cellPos, string image, int widt
 	int y = GetCellStartY(cellPos) + UI.CellHeight / 4;
 
 	// TODO: Complete the implementation of this function
+	pWind->DrawImage(image, x, y, width, height);
 }
 
 //======================================================================================//
@@ -596,23 +597,39 @@ void Output::DrawFlag(const CellPosition &cellPos) const
 
 void Output::DrawRotatingGear(const CellPosition &cellPos, bool clockwise) const
 {
-	// TODO: Validate the cell position
-
-	// TODO: Draw the rotating gear image in the cell based on the passed direction (clockwise or counter clockwise)
+	// DONE: Validate the cell position
+	if (!cellPos.IsValidCell())
+		return;
+	// DONE: Draw the rotating gear image in the cell based on the passed direction (clockwise or counter clockwise)
+	int width = UI.CellWidth / 2;
+	int height = UI.CellHeight / 2;
+	if (clockwise)
+		DrawImageInCell(cellPos, "images\\RotateCW.jpg", width, height);
+	else
+		DrawImageInCell(cellPos, "images\\RotateCCW.jpg", width, height);
 }
 
 void Output::DrawAntenna(const CellPosition &cellPos) const
 {
-	// TODO: Validate the cell position
+	// DONE: Validate the cell position
+	if (!cellPos.IsValidCell())
+		return;
 
-	// TODO: Draw the antenna image in the cell
+	// DONE: Draw the antenna image in the cell
+	int width = UI.CellWidth / 2;
+	int height = UI.CellHeight / 2;
+	DrawImageInCell(cellPos, "images\\Design\\antenna.jpg", width, height);
 }
 
 void Output::DrawWorkshop(const CellPosition &cellPos) const
 {
-	// TODO: Validate the cell position
-
-	// TODO: Draw the workshop image in the cell
+	// DONE: Validate the cell position
+	if (!cellPos.IsValidCell())
+		return;
+	// DONE: Draw the workshop image in the cell
+	int width = UI.CellWidth / 2;
+	int height = UI.CellHeight / 2;
+	DrawImageInCell(cellPos, "images\\Workshop.jpg", width, height);
 }
 
 void Output::DrawDangerZone(const CellPosition &cellPos) const
