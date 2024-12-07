@@ -145,24 +145,36 @@ void CellPosition::AddCellNum(int addedNum, Direction direction)
 {
 	int cell = 0;
 
-	if (direction == UP && (VCell() - addedNum) >= 0)
-		SetVCell(VCell() - addedNum);
-	else if ((VCell() - addedNum) < 0)
-		SetVCell(0);
+	switch (direction)
+	{
+	case UP:
+		if (SetVCell(VCell() - addedNum))
+			cell = 0;
+		else
+			SetVCell(0);
+		break;
 
-	if (direction == DOWN && (VCell() + addedNum) < 5)
-		SetVCell(VCell() + addedNum);
-	else if ((VCell() + addedNum) < 5)
-		SetVCell(4);
+	case DOWN:
 
-	if (direction == RIGHT && (HCell() + addedNum) < 11)
-		SetHCell(HCell() + addedNum);
-	else if ((HCell() + addedNum) < 11)
-		SetHCell(11);
+		if (SetVCell(VCell() + addedNum))
+			cell = 0;
+		else
+			SetVCell(4);
+		break;
 
-	if (direction == LEFT && (HCell() - addedNum) >= 0)
-		SetHCell(HCell() - addedNum);
-	else if ((HCell() - addedNum) >= 0)
-		SetHCell(0);
+	case RIGHT:
+		if (SetHCell(HCell() + addedNum))
+			cell = 0;
+		else
+			SetHCell(10);
+		break;
+
+	case LEFT:
+		if (SetHCell(HCell() - addedNum))
+			cell = 0;
+		else
+			SetHCell(0);
+		break;
+	}
 }
 // done
