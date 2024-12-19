@@ -3,7 +3,7 @@
 #include "Input.h"
 #include "Output.h"
 #include "Belt.h"
-class AddBeltAction :public Action
+class AddBeltAction : public Action
 {
 	// Always add action parameters as private data members
 
@@ -16,10 +16,8 @@ public:
 	AddBeltAction(ApplicationManager *pApp);
 	virtual void ReadActionParameters(); // Reads AddBeltAction action parameters (startPos, endPos)
 
-	virtual void Execute(); // Creates a new belt Object 
+	virtual void Execute(); // Creates a new belt Object
 							// then Sets this belt object to the GameObject Pointer of its Cell
-
 
 	virtual ~AddBeltAction();
 };
-

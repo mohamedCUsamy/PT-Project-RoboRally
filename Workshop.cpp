@@ -1,19 +1,15 @@
 #include "Workshop.h"
 
-
-
-Workshop::Workshop(const CellPosition & workshopPosition):GameObject( workshopPosition)
+Workshop::Workshop(const CellPosition &workshopPosition) : GameObject(workshopPosition)
 {
-
 }
 
-
-void Workshop::Draw(Output * pOut) const
+void Workshop::Draw(Output *pOut) const
 {
 	pOut->DrawWorkshop(position);
 }
 
-void Workshop::Apply(Grid * pGrid, Player * pPlayer)
+void Workshop::Apply(Grid *pGrid, Player *pPlayer)
 {
 }
 

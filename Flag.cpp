@@ -1,18 +1,17 @@
 #include "Flag.h"
-Flag::Flag(const CellPosition & flagposition) : GameObject(flagposition)
+Flag::Flag(const CellPosition &flagposition) : GameObject(flagposition)
 {
-
 }
 
-void Flag::Draw(Output* pOut) const
+void Flag::Draw(Output *pOut) const
 {
 	pOut->DrawFlag(position);
 }
 
-void Flag::Apply(Grid* pGrid, Player* pPlayer)
+void Flag::Apply(Grid *pGrid, Player *pPlayer)
 {
 
-	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
+	/// TODO: Implement this function as mentioned in the guideline steps (numbered below) below
 	// == Here are some guideline steps (numbered below) to implement this function ==
 
 	// 1- Print a message "You have reached a flag. Click to continue ..." and wait mouse click
@@ -23,5 +22,4 @@ void Flag::Apply(Grid* pGrid, Player* pPlayer)
 
 Flag::~Flag()
 {
-
 }

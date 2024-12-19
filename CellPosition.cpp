@@ -21,9 +21,9 @@ CellPosition::CellPosition(int v, int h)
 CellPosition::CellPosition(int cellNum)
 {
 	(*this) = GetCellPositionFromNum(cellNum); // the function call with build a cell position (vCell and hCell)
-	// from the passed (cellNum)
-	// (*this) = ... --> this will copy the returned (vCell and hCell)
-	//                   to the data members (vCell and hCell)
+											   // from the passed (cellNum)
+											   // (*this) = ... --> this will copy the returned (vCell and hCell)
+											   //                   to the data members (vCell and hCell)
 }
 // like a getter
 
@@ -80,7 +80,7 @@ int CellPosition::GetCellNum() const
 }
 // done
 
-int CellPosition::GetCellNumFromPosition(const CellPosition& cellPosition)
+int CellPosition::GetCellNumFromPosition(const CellPosition &cellPosition)
 {
 	// Note:
 	// this is a static function (do NOT need a calling object so CANNOT use the data members of the calling object, vCell&hCell)
