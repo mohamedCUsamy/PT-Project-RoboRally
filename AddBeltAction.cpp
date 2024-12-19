@@ -24,7 +24,14 @@ void AddBeltAction::ReadActionParameters()
 
 
 	///TODO: Make the needed validations on the read parameters
-
+	if (startPos.IsValidCell() != endPos.IsValidCell() && (startPos.VCell() == endPos.VCell()) && (startPos.HCell() == endPos.HCell() ) )
+	{
+		string toprint = "Belt set from start from cell " + to_string(startPos.GetCellNum()) + " and the end cell is " + to_string(endPos.GetCellNum());
+		pOut->PrintMessage(toprint);
+	}
+	else
+		pOut->PrintMessage("Invalid position for belt ");
+	//done
 
 
 	// Clear messages
