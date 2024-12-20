@@ -4,6 +4,9 @@
 #include "AddBeltAction.h"
 #include "AddRotatingGearAction.h"
 #include "AddFlagAction.h"
+#include "AddDangerZoneAction.h"
+#include "AddWaterPitAction.h"
+#include "AddWorkshopAction.h"
 
 /// TODO: Add #include for all action types
 
@@ -81,6 +84,15 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 		/// TODO: Add a case for EACH Action type in the Design mode or Play mode
+	case Add_Danger_Zone:
+		pAct = new AddDangerZoneAction(this);
+		break;
+	case Add_Water_Pit:
+		pAct = new AddWaterPitAction(this);
+		break;
+	case Add_Workshop:
+		pAct = new AddWorkshopAction(this);
+		break;
 
 	case STATUS: // a click on the status bar ==> no action
 		return;

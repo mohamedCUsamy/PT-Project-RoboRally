@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0"
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -31,11 +32,15 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props"
+      Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')"
+      Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props"
+      Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')"
+      Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
@@ -132,6 +137,9 @@
     <ClCompile Include="AddBeltAction.cpp" />
     <ClCompile Include="AddFlagAction.cpp" />
     <ClCompile Include="AddRotatingGearAction.cpp" />
+    <ClCompile Include="AddDangerZoneAction.cpp" />
+    <ClCompile Include="AddWaterPitAction.cpp" />
+    <ClCompile Include="AddWorkshopAction.cpp" />
     <ClCompile Include="Antenna.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="Belt.cpp" />
@@ -190,6 +198,9 @@
     <ClInclude Include="AddBeltAction.h" />
     <ClInclude Include="AddFlagAction.h" />
     <ClInclude Include="AddRotatingGearAction.h" />
+    <ClInclude Include="AddDangerZoneAction.h" />
+    <ClInclude Include="AddWaterPitAction.h" />
+    <ClInclude Include="AddWorkshopAction.h" />
     <ClInclude Include="Antenna.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Belt.h" />
