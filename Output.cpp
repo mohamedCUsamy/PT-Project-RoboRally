@@ -73,8 +73,6 @@ Output::Output()
 	// Colors of the 2 Players
 	UI.PlayerColors[0] = GOLD;
 	UI.PlayerColors[1] = DARKSLATEBLUE;
-	/*UI.PlayerColors[2] = KHAKI;
-	UI.PlayerColors[3] = CHOCOLATE;*/
 
 	// Create the output window
 	pWind = CreateWind(UI.width + 15, UI.height, UI.wx, UI.wy);
