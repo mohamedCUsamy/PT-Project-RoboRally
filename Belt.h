@@ -6,7 +6,6 @@ class Belt : public GameObject
 	// Note: the "position" data member inherited from the GameObject class is used as the belt's "Start Cell Position"
 	Output* pOut;// needed akid
 	Input* pIn;//needed akid
-	GameObject* ptrToObject;// done from mee
 	CellPosition endCellPos; // here is the belt's End Cell Position
 public:
 	Belt(const CellPosition &startCellPos, const CellPosition &endCellPos); // A constructor for initialization
