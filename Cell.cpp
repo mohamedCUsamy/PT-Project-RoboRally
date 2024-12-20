@@ -1,5 +1,5 @@
 #include "Cell.h"
-
+#include "Flag.h"
 #include "Grid.h"
 #include "GameObject.h"
 #include "Belt.h"
@@ -50,21 +50,21 @@ Flag *Cell::HasFlag() const
 
 	/// TODO: Implement the following function like HasBelt() function
 
-	return false; // THIS LINE SHOULD CHANGED WITH YOUR IMPLEMENTATION
+	return dynamic_cast<Flag *>(pGameObject);
 }
 WaterPit *Cell::HasWaterPit() const
 {
 
 	/// TODO: Implement the following function like HasBelt() function
 
-	return false; // THIS LINE SHOULD CHANGED WITH YOUR IMPLEMENTATION
+	return dynamic_cast<WaterPit *>(pGameObject);
 }
 
 DangerZone *Cell::HasDangerZone() const
 {
 	/// TODO: Implement the following function like HasBelt() function
 
-	return false; // THIS LINE SHOULD CHANGED WITH YOUR IMPLEMENTATION
+	return dynamic_cast<DangerZone *>(pGameObject);
 }
 
 // ======= Drawing Functions =======
@@ -84,6 +84,6 @@ void Cell::DrawCellOrWaterPitOrDangerZone(Output *pOut) const
 void Cell::DrawGameObject(Output *pOut) const
 {
 	// TODO: edit this incomplete implemntation to check for other game objects (excluding waterpits and dangerzones)
-	if (HasFlag() || HasBelt())
+	if ((HasFlag() || HasBelt()) && (!HasDangerZone() && !HasWaterPit()))
 		pGameObject->Draw(pOut); // draw game object
 }
