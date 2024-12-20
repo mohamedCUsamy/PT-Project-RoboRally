@@ -54,14 +54,18 @@ bool Grid::AddObjectToCell(GameObject *pNewObject) // think if any validation is
 }
 
 // Note: You may need to change the return type of this function (Think)
-void Grid::RemoveObjectFromCell(const CellPosition &pos)
+//done changed to bool
+bool Grid::RemoveObjectFromCell(const CellPosition &pos)
 {
 	if (pos.IsValidCell()) // Check if valid position
 	{
 		// Note: you can deallocate the object here before setting the pointer to null if it is needed
 
 		CellList[pos.VCell()][pos.HCell()]->SetGameObject(NULL);
+		return true;
 	}
+	else
+	return false;
 }
 
 void Grid::UpdatePlayerCell(Player *player, const CellPosition &newPosition)
@@ -132,6 +136,11 @@ Belt *Grid::GetNextBelt(const CellPosition &position)
 		{
 
 			/// TODO: Check if CellList[i][j] has a belt, if yes return it
+			if (CellList[i][j]->HasBelt()) {
+				Belt* ptrBelt = dynamic_cast<Belt*>(CellList[i][j]->GetGameObject());
+				return (ptrBelt);
+
+			}
 		}
 		startH = 0; // because in the next above rows, we will search from the first left cell (hCell = 0) to the right
 	}
@@ -216,3 +225,8 @@ Grid::~Grid()
 		delete PlayerList[i];
 	}
 }
+
+
+// remove game object to bool and if condition
+//check is belt and return it 
+//

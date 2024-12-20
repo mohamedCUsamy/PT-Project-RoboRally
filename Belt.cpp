@@ -3,7 +3,7 @@
 Belt::Belt(const CellPosition &startCellPos, const CellPosition &endCellPos) : GameObject(startCellPos)
 {
 	this->endCellPos = endCellPos;
-
+	ptrToObject = NULL;
 	/// TODO: Do the needed validation
 }
 void Belt::Draw(Output *pOut) const
@@ -11,7 +11,7 @@ void Belt::Draw(Output *pOut) const
 	pOut->DrawBelt(position, endCellPos);
 }
 
-void Belt::Apply(Grid *pGrid, Player *pPlayer)
+void Belt::Apply(Grid* pGrid, Player* pPlayer)
 {
 
 	/// TODO: Implement this function as mentioned in the guideline steps (numbered below) below
@@ -20,8 +20,15 @@ void Belt::Apply(Grid *pGrid, Player *pPlayer)
 
 	// 1- Print a message "You have reached a belt. Click to continue ..." and wait mouse click
 
+	pOut->PrintMessage("You have reached a belt.Click to continue ...: ");
+	pIn->GetCellClicked();
+
 	// 2- Apply the belt's effect by moving the player to the endCellPos
 	//    Review the "pGrid" functions and decide which function can be used for that
+	// 
+	//	pGrid->AddObjectToCell();              // no need for this 
+	//	pGrid->RemoveObjectFromCell(position); // no need neither this
+		pGrid->UpdatePlayerCell(pPlayer, endCellPos);
 }
 CellPosition Belt::GetEndPosition() const
 {

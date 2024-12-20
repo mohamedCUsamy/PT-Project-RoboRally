@@ -21,7 +21,7 @@ void AddBeltAction::ReadActionParameters()
 	endPos = pIn->GetCellClicked();
 
 	///TODO: Make the needed validations on the read parameters
-	if (  (startPos.GetCellNum() != endPos.GetCellNum())   &&    ((startPos.IsValidCell() && endPos.IsValidCell()))   &&    ((startPos.VCell() == endPos.VCell())||(startPos.HCell() == endPos.HCell()))   )
+	if (  (startPos.GetCellNum() != endPos.GetCellNum())   &&    ((startPos.IsValidCell() && endPos.IsValidCell()))   &&    ( (startPos.VCell() == endPos.VCell())||(startPos.HCell() == endPos.HCell()) )   )
 	{
 		string toprint = "Belt set from start from cell " + to_string(startPos.GetCellNum()) + " and the end cell is " + to_string(endPos.GetCellNum());
 		pOut->PrintMessage(toprint);
@@ -33,6 +33,11 @@ void AddBeltAction::ReadActionParameters()
 		pIn->GetCellClicked();
 	}
 		//done
+	//same cell condition working
+	// pressing not on a cell is working
+	// horizontall working
+	//want to check their is an object or not in all cells
+
 	
 	// Clear messages
 	pOut->ClearStatusBar();
