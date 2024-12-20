@@ -1,12 +1,9 @@
 #include "Belt.h"
 
-Belt::Belt(const CellPosition &startCellPos, const CellPosition &endCellPos) : GameObject(startCellPos)
 {
 	this->endCellPos = endCellPos;
-	ptrToObject = NULL;
 	/// TODO: Do the needed validation
 }
-void Belt::Draw(Output *pOut) const
 {
 	pOut->DrawBelt(position, endCellPos);
 }
@@ -28,7 +25,6 @@ void Belt::Apply(Grid* pGrid, Player* pPlayer)
 	// 
 	//	pGrid->AddObjectToCell();              // no need for this 
 	//	pGrid->RemoveObjectFromCell(position); // no need neither this
-		pGrid->UpdatePlayerCell(pPlayer, endCellPos);
 }
 CellPosition Belt::GetEndPosition() const
 {
