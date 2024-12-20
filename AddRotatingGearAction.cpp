@@ -1,6 +1,5 @@
 #include "AddRotatingGearAction.h"
 
-AddRotatingGearAction::AddRotatingGearAction(ApplicationManager *pApp) : Action(pApp)
 {
 }
 
@@ -16,7 +15,6 @@ void AddRotatingGearAction::ReadActionParameters()
 	// 3- Read whether the direction will be clockwise or not
 
 	// 4- Make the needed validations on the read parameters
-
 	// 5- Clear status bar
 }
 
@@ -31,7 +29,6 @@ void AddRotatingGearAction::Execute()
 	// 1-Create a rotating gear object
 	// 2-get a pointer to the Grid from the ApplicationManager
 	// 3-Add the rotating object to the GameObject of its Cell:
-	// 4-Check if the rotating gear was added and print an errror message if flag couldn't be added
 }
 
 AddRotatingGearAction::~AddRotatingGearAction()
