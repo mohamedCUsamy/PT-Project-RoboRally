@@ -32,6 +32,10 @@ int Player::GetHealth()
 	return this->health;
 }
 
+int Player::GetPlayerNum() const
+{
+	return playerNum;
+}
 // ====== Drawing Functions ======
 
 void Player::Draw(Output *pOut) const

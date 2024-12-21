@@ -117,6 +117,25 @@ void Grid::AdvanceCurrentPlayer()
 	currPlayerNumber = (currPlayerNumber + 1) % MaxPlayerCount; // this generates value from 0 to MaxPlayerCount - 1
 }
 
+void Grid::SetCurrentPlayer(int playerNum)
+{
+	currPlayerNumber = playerNum;
+}
+
+int Grid::CountGameObject(GameObject *pGObj)
+{
+	int count = 0;
+	for (int i = NumVerticalCells - 1; i >= 0; i--) // bottom up
+	{
+		for (int j = 0; j < NumHorizontalCells; j++) // left to right
+		{
+			GameObject *pObj = CellList[i][j]->GetGameObject();
+			if (dynamic_cast<decltype(pGObj)>(pObj) == pGObj)
+				count++;
+		}
+	}
+	return count;
+}
 // ========= Other Getters =========
 
 Player *Grid::GetCurrentPlayer() const
