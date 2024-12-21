@@ -19,6 +19,7 @@ void AddFlagAction::ReadActionParameters()
 	// 4- Make the needed validations on the read parameters
 
 	// 5- Clear status bar
+
 }
 
 void AddFlagAction::Execute()
