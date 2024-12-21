@@ -121,7 +121,7 @@ void Grid::SetCurrentPlayer(int playerNum)
 {
 	currPlayerNumber = playerNum;
 }
-
+/*
 int Grid::CountGameObject(GameObject *pGObj)
 {
 	int count = 0;
@@ -136,6 +136,28 @@ int Grid::CountGameObject(GameObject *pGObj)
 	}
 	return count;
 }
+*/
+
+void Grid::SetNumAntennas(int numAntennas)
+{
+	this->numAntennas = numAntennas;
+}
+
+int Grid::GetNumAntennas() const
+{
+	return numAntennas;
+}
+
+void Grid::SetNumFlag(int numFlag)
+{
+	this->numFlag = numFlag;
+}
+
+int Grid::GetNumFlag() const
+{
+	return numFlag;
+}
+
 // ========= Other Getters =========
 
 Player *Grid::GetCurrentPlayer() const

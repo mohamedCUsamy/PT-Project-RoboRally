@@ -23,16 +23,16 @@ void AddAntennaAction::ReadActionParameters()
 
 void AddAntennaAction::Execute()
 {
-    ReadActionParameters();
-
-    Antenna *pAntenna = new Antenna(Pos);
-
     Grid *pGrid = pManager->GetGrid();
-    if (pGrid->CountGameObject(pAntenna) > 0)
+    if (pGrid->GetNumAntennas() > 0)
     {
         pGrid->PrintErrorMessage("Error: Game already has an antenna!");
         return;
     }
+    ReadActionParameters();
+
+    Antenna *pAntenna = new Antenna(Pos);
+
     Output *pOut = pGrid->GetOutput();
 
     bool added = pGrid->AddObjectToCell(pAntenna);
@@ -40,6 +40,10 @@ void AddAntennaAction::Execute()
     if (!added)
     {
         pOut->PrintMessage("Error: Cell already has an object!");
+    }
+    else
+    {
+        pGrid->SetNumAntennas(1);
     }
 }
 

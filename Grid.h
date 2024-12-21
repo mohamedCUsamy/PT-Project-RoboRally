@@ -29,15 +29,19 @@ class Grid
 
 	bool endGame; // A boolean indicating if the Game is ended or not (a player reaches the flag cell or not)
 
+	int numFlag;
+	int numAntennas;
 public:
 	Grid(Input *pIn, Output *pOut); // Gives the Grid a Pointer to the Output Object and the Input Object
 									// and makes any needed initializations
 
 	// ========= Adding or Removing GameObjects to Cells =========
 
-	bool AddObjectToCell(GameObject *pNewObject); // Adds a GameObject to the Cell of its "position" data member
+	bool AddObjectToCell(GameObject* pNewObject); // Adds a GameObject to the Cell of its "position" data member
 												  // only if the Cell does NOT already contain an object,
 												  // otherwise return false and don't add
+												  
+
 
 	bool RemoveObjectFromCell(const CellPosition &pos); // Removes the GameObject of the Cell of the passed "position"
 														// Note: You may need to change the return type of this function (Think)
@@ -51,8 +55,6 @@ public:
 	Input *GetInput() const;   // Gets a Pointer to the Input
 	Output *GetOutput() const; // Gets a Pointer to the Output
 
-	bool SetCellList();
-
 	void SetClipboard(GameObject *gameObject); // A setter to be used in copy/cut (in order NOT to break class responsibilities)
 	GameObject *GetClipboard() const;		   // A getter to be used in paste (in order NOT to break class responsibilities)
 
@@ -64,7 +66,16 @@ public:
 	/// TODO: add any needed setter/getter "EXCEPT" ANY setters or getters of "CellList" or "PlayerList" (Forbidden for class Responsibilities)
 	void SetCurrentPlayer(int playerNum);	// A setter for the currPlayerNumber
 											// It sets the current player number to the passed value
-	int CountGameObject(GameObject *pGObj); // Counts the number of GameObjects of type pGObj in the Grid
+	//int CountGameObject(GameObject *pGObj); // Counts the number of GameObjects of type pGObj in the Grid
+	
+	void SetNumAntennas(int numAntennas);
+
+	int GetNumAntennas() const;
+
+	void SetNumFlag(int numFlag);
+
+	int GetNumFlag() const;
+	
 	// ========= Other Getters =========
 
 	Player *GetCurrentPlayer() const;				 // Gets a Pointer to the Current Player
