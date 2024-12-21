@@ -193,6 +193,8 @@
     <ClCompile Include="WaterPit.cpp" />
     <ClCompile Include="Workshop.cpp" />
     <ClCompile Include="AddAntennaAction.cpp" />
+    <ClCompile Include="CreatePlayModeToolBarAction.cpp" />
+    <ClCompile Include="CreateDesignModeToolBarAction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
@@ -240,6 +242,8 @@
     <ClInclude Include="WaterPit.h" />
     <ClInclude Include="Workshop.h" />
     <ClInclude Include="AddAntennaAction.h" />
+    <ClInclude Include="CreatePlayModeToolBarAction.h" />
+    <ClInclude Include="CreateDesignModeToolBarAction.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

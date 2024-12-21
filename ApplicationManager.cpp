@@ -8,6 +8,8 @@
 #include "AddWaterPitAction.h"
 #include "AddWorkshopAction.h"
 #include "AddAntennaAction.h"
+#include "CreatePlayModeToolBarAction.h"   // Include the correct header file for CreatePlayMode
+#include "CreateDesignModeToolBarAction.h" // Include the correct header file for CreateDesignMode
 
 /// TODO: Add #include for all action types
 
@@ -75,13 +77,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 	case EXIT:
 		break;
-
-	case TO_PLAY_MODE:				   // TODO:
-		pOut->CreatePlayModeToolBar(); // temporary till you made its action class (CHANGE THIS LATTER)
+	case TO_PLAY_MODE:								  // TODO:
+		pAct = new CreatePlayModeToolBarAction(this); // Use the correct class name
 		break;
 
-	case TO_DESIGN_MODE:				 // TODO:
-		pOut->CreateDesignModeToolBar(); // temporary till you made its action class (CHANGE THIS LATTER)
+	case TO_DESIGN_MODE:
+		pAct = new CreateDesignModeToolBarAction(this);
 		break;
 
 		/// TODO: Add a case for EACH Action type in the Design mode or Play mode
