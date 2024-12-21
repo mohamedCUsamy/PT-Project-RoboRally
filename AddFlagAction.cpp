@@ -13,11 +13,19 @@ void AddFlagAction::ReadActionParameters()
 	// == Here are some guideline steps (numbered below) to implement this function ==
 
 	// 1- Get a Pointer to the Input / Output Interfaces
+	Input* pIn;
+	Output* pOut;
 	// 2- Read the flagPos
+	flagPos = pIn->GetCellClicked();
 
 	// 4- Make the needed validations on the read parameters
+	if(flagPos.IsValidCell())
+		pOut->PrintMessage("Flag have a position");
+	else
+		pOut->PrintMessage("Flag position is invalid");
 
 	// 5- Clear status bar
+	pOut->ClearStatusBar();
 
 }
 
