@@ -132,6 +132,16 @@ int Grid::GetNumAntennas() const
 	return numAntennas;
 }
 
+void Grid::SetNumFlag(int numFlag)
+{
+	this->numFlag = numFlag;
+}
+
+int Grid::GetNumFlag() const
+{
+	return numFlag;
+}
+
 // ========= Other Getters =========
 
 Player *Grid::GetCurrentPlayer() const

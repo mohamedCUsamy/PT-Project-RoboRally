@@ -30,6 +30,9 @@ class Grid
 
 	bool endGame; // A boolean indicating if the Game is ended or not (a player reaches the flag cell or not)
 
+	int numFlag;
+	int numAntennas;
+
 public:
 	Grid(Input *pIn, Output *pOut); // Gives the Grid a Pointer to the Output Object and the Input Object
 									// and makes any needed initializations
@@ -63,9 +66,11 @@ public:
 	/// TODO: add any needed setter/getter "EXCEPT" ANY setters or getters of "CellList" or "PlayerList" (Forbidden for class Responsibilities)
 	void SetCurrentPlayer(int playerNum); // A setter for the currPlayerNumber
 										  // It sets the current player number to the passed value
-	void SetNumAntennas(int numAntennas); // A setter for the numAntennas
-	// It sets the number of antennas to the passed value
-	int GetNumAntennas() const; // A getter for the numAntennas
+	void SetNumAntennas(int numAntennas);
+	int GetNumAntennas() const;
+	void SetNumFlag(int numFlag);
+	int GetNumFlag() const;
+
 	// ========= Other Getters =========
 
 	Player *GetCurrentPlayer() const;				 // Gets a Pointer to the Current Player
