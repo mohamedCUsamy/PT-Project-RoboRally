@@ -117,6 +117,25 @@ void Grid::AdvanceCurrentPlayer()
 	currPlayerNumber = (currPlayerNumber + 1) % MaxPlayerCount; // this generates value from 0 to MaxPlayerCount - 1
 }
 
+void Grid::SetCurrentPlayer(int playerNum)
+{
+	currPlayerNumber = playerNum;
+}
+
+int Grid::CountGameObject(GameObject *pGObj)
+{
+	int count = 0;
+	for (int i = NumVerticalCells - 1; i >= 0; i--) // bottom up
+	{
+		for (int j = 0; j < NumHorizontalCells; j++) // left to right
+		{
+			GameObject *pObj = CellList[i][j]->GetGameObject();
+			if (dynamic_cast<decltype(pGObj)>(pObj) == pGObj)
+				count++;
+		}
+	}
+	return count;
+}
 // ========= Other Getters =========
 
 Player *Grid::GetCurrentPlayer() const
@@ -134,14 +153,11 @@ Belt *Grid::GetNextBelt(const CellPosition &position)
 		{
 
 			/// TODO: Check if CellList[i][j] has a belt, if yes return it
-			Belt* ptrBelt=NULL;
-			if (CellList[i][j]->HasBelt()) 
+			if (CellList[i][j]->HasBelt())
 			{
-				ptrBelt = dynamic_cast<Belt*>(CellList[i][j]->GetGameObject());
-				if (!ptrBelt)
-					return (ptrBelt);
+				Belt *ptrBelt = dynamic_cast<Belt *>(CellList[i][j]->GetGameObject());
+				return (ptrBelt);
 			}
-			
 		}
 		startH = 0; // because in the next above rows, we will search from the first left cell (hCell = 0) to the right
 	}

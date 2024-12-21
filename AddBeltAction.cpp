@@ -21,7 +21,7 @@ void AddBeltAction::ReadActionParameters()
 	endPos = pIn->GetCellClicked();
 
 	/// TODO: Make the needed validations on the read parameters
-	if ((startPos.GetCellNum() != endPos.GetCellNum()) && ((startPos.IsValidCell() && endPos.IsValidCell())) && ((startPos.VCell() == endPos.VCell()) || (startPos.HCell() == endPos.HCell()))) 
+	if ((startPos.GetCellNum() != endPos.GetCellNum()) && ((startPos.IsValidCell() && endPos.IsValidCell())) && ((startPos.VCell() == endPos.VCell()) || (startPos.HCell() == endPos.HCell())))
 	{
 		string toprint = "Belt set from start from cell " + to_string(startPos.GetCellNum()) + " and the end cell is " + to_string(endPos.GetCellNum());
 		pOut->PrintMessage(toprint);
@@ -45,7 +45,7 @@ void AddBeltAction::Execute()
 	ReadActionParameters();
 
 	// Create a belt object with the parameters read from the user
-	Belt *pBelt = new Belt(startPos, endPos);
+	Belt* pBelt= new Belt(startPos, endPos);
 
 	Grid *pGrid = pManager->GetGrid(); // We get a pointer to the Grid from the ApplicationManager
 

@@ -51,6 +51,8 @@ public:
 	Input *GetInput() const;   // Gets a Pointer to the Input
 	Output *GetOutput() const; // Gets a Pointer to the Output
 
+	bool SetCellList();
+
 	void SetClipboard(GameObject *gameObject); // A setter to be used in copy/cut (in order NOT to break class responsibilities)
 	GameObject *GetClipboard() const;		   // A getter to be used in paste (in order NOT to break class responsibilities)
 
@@ -60,7 +62,9 @@ public:
 	void AdvanceCurrentPlayer(); // Increments the currPlayerNum and if reaches MaxPlayerCount reset to 0 (using %)
 
 	/// TODO: add any needed setter/getter "EXCEPT" ANY setters or getters of "CellList" or "PlayerList" (Forbidden for class Responsibilities)
-
+	void SetCurrentPlayer(int playerNum);	// A setter for the currPlayerNumber
+											// It sets the current player number to the passed value
+	int CountGameObject(GameObject *pGObj); // Counts the number of GameObjects of type pGObj in the Grid
 	// ========= Other Getters =========
 
 	Player *GetCurrentPlayer() const;				 // Gets a Pointer to the Current Player

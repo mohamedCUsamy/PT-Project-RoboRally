@@ -3,6 +3,7 @@
 #include "Input.h"
 #include "Output.h"
 #include "Flag.h"
+#include "Cell.h"
 class AddFlagAction : public Action
 {
 	// Always add action parameters as private data members

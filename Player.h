@@ -31,6 +31,7 @@ public:
 	int GetHealth();	   // A getter for the health points
 
 	/// TODO: You can add setters and getters for data members here (if needed)
+	int GetPlayerNum() const;
 
 	// ====== Drawing Functions ======
 
