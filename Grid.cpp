@@ -134,10 +134,12 @@ Belt *Grid::GetNextBelt(const CellPosition &position)
 		{
 
 			/// TODO: Check if CellList[i][j] has a belt, if yes return it
+			Belt* ptrBelt=NULL;
 			if (CellList[i][j]->HasBelt()) 
 			{
-				Belt* ptrBelt = dynamic_cast<Belt*>(CellList[i][j]->GetGameObject());
-				return (ptrBelt);
+				ptrBelt = dynamic_cast<Belt*>(CellList[i][j]->GetGameObject());
+				if (!ptrBelt)
+					return (ptrBelt);
 			}
 			
 		}
