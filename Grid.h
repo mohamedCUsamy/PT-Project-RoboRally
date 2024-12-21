@@ -24,6 +24,7 @@ class Grid
 	Player *PlayerList[MaxPlayerCount]; // An array of "Pointers" to the Players of the Game (MaxPlayerCount Players)
 	int currPlayerNumber;				// The player number that has the turn to play
 										// currPlayerNumber is: from 0 to MaxPlayerCount - 1
+	int numAntennas;					// Number of antennas in the grid
 
 	GameObject *Clipboard; // This is used in copy/cut/paste game objects (should be set in copy/cut and got in paste)
 
@@ -60,9 +61,11 @@ public:
 	void AdvanceCurrentPlayer(); // Increments the currPlayerNum and if reaches MaxPlayerCount reset to 0 (using %)
 
 	/// TODO: add any needed setter/getter "EXCEPT" ANY setters or getters of "CellList" or "PlayerList" (Forbidden for class Responsibilities)
-	void SetCurrentPlayer(int playerNum);	// A setter for the currPlayerNumber
-											// It sets the current player number to the passed value
-	int CountGameObject(GameObject *pGObj); // Counts the number of GameObjects of type pGObj in the Grid
+	void SetCurrentPlayer(int playerNum); // A setter for the currPlayerNumber
+										  // It sets the current player number to the passed value
+	void SetNumAntennas(int numAntennas); // A setter for the numAntennas
+	// It sets the number of antennas to the passed value
+	int GetNumAntennas() const; // A getter for the numAntennas
 	// ========= Other Getters =========
 
 	Player *GetCurrentPlayer() const;				 // Gets a Pointer to the Current Player
