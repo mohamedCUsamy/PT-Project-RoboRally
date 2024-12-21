@@ -192,6 +192,7 @@
     <ClCompile Include="RotatingGear.cpp" />
     <ClCompile Include="WaterPit.cpp" />
     <ClCompile Include="Workshop.cpp" />
+    <ClCompile Include="AddAntennaAction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
@@ -238,6 +239,7 @@
     <ClInclude Include="UI_Info.h" />
     <ClInclude Include="WaterPit.h" />
     <ClInclude Include="Workshop.h" />
+    <ClInclude Include="AddAntennaAction.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

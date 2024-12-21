@@ -7,6 +7,7 @@
 #include "AddDangerZoneAction.h"
 #include "AddWaterPitAction.h"
 #include "AddWorkshopAction.h"
+#include "AddAntennaAction.h"
 
 /// TODO: Add #include for all action types
 
@@ -92,6 +93,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 	case Add_Workshop:
 		pAct = new AddWorkshopAction(this);
+		break;
+	case Add_Antenna:
+		pAct = new AddAntennaAction(this);
 		break;
 
 	case STATUS: // a click on the status bar ==> no action
