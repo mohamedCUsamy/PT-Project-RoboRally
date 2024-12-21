@@ -13,7 +13,6 @@ void AddFlagAction::ReadActionParameters()
 	// == Here are some guideline steps (numbered below) to implement this function ==
 
 	// 1- Get a Pointer to the Input / Output Interfaces
-
 	// 2- Read the flagPos
 
 	// 4- Make the needed validations on the read parameters
