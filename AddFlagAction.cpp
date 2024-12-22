@@ -69,6 +69,11 @@ void AddFlagAction::Execute()
 	}
 }
 
+CellPosition AddFlagAction::GetCellPosition()
+{
+	return flagPos;
+}
+
 AddFlagAction::~AddFlagAction()
 {
 }
