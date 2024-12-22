@@ -15,6 +15,8 @@ void AddFlagAction::ReadActionParameters()
 	// 1- Get a Pointer to the Input / Output Interfaces
 	Input *pIn = pManager->GetGrid()->GetInput();
 	Output *pOut = pManager->GetGrid()->GetOutput();
+	Grid* pGrid = pManager->GetGrid();
+
 
 	// 2- Read the flagPos
 	pOut->PrintMessage("New Object: Click on its Cell ...");
@@ -23,8 +25,8 @@ void AddFlagAction::ReadActionParameters()
 	// 4- Make the needed validations on the read parameters
 	if (flagPos.IsValidCell())
 	{ //
-		pOut->PrintMessage("Flag have a valid position");
-		pIn->GetCellClicked();
+		pGrid->PrintErrorMessage("Flag have a valid position");
+		
 
 		pOut->ClearStatusBar();
 		return;
@@ -58,8 +60,8 @@ void AddFlagAction::Execute()
 	// 4-Check if the flag was added and print an errror message if flag couldn't be added
 	if (!added)
 	{
-		pOut->PrintMessage("Flag not added");
-		pOut->ClearStatusBar();
+		pGrid->PrintErrorMessage("Flag not added");
+		
 	}
 	else
 	{

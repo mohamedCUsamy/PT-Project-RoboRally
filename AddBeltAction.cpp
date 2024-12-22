@@ -24,13 +24,12 @@ void AddBeltAction::ReadActionParameters()
 	if ((startPos.GetCellNum() != endPos.GetCellNum()) && ((startPos.IsValidCell() && endPos.IsValidCell())) && ((startPos.VCell() == endPos.VCell()) || (startPos.HCell() == endPos.HCell())))
 	{
 		string toprint = "Belt set from start from cell " + to_string(startPos.GetCellNum()) + " and the end cell is " + to_string(endPos.GetCellNum());
-		pOut->PrintMessage(toprint);
-		pIn->GetCellClicked();
+		pGrid->PrintErrorMessage(toprint);
+		
 	}
 	else
 	{
-		pOut->PrintMessage("Invalid position for belt ");
-		pIn->GetCellClicked();
+		pGrid->PrintErrorMessage("Invalid position for belt ");
 	}
 	// done
 
@@ -46,6 +45,7 @@ void AddBeltAction::Execute()
 
 	// Create a belt object with the parameters read from the user
 	Belt *pBelt = new Belt(startPos, endPos);
+	int PosOf_Flag = endPos.GetCellNum();
 
 	Grid *pGrid = pManager->GetGrid(); // We get a pointer to the Grid from the ApplicationManager
 
